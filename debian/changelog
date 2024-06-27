@@ -1,3 +1,9 @@
+gcc-12-cross (19-0deepin2) unstable; urgency=medium
+
+  * Build-depends: gccgo-12 [!loong64] gdc-12 [!loong64] gm2-12 [!loong64] gnat-12[!loong64].
+
+ -- LiChengGang <lichenggang@uniontech.com>  Thu, 27 Jun 2024 15:02:51 +0800
+
 gcc-12-cross (19-0deepin1) unstable; urgency=medium
 
   * Add full cross support for arm64, loong64, riscv64.
