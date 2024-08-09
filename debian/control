@@ -1,15 +1,2926 @@
-Source: template-repository
-Section: unknown
+Source: gcc-12-cross
+Section: devel
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian GCC Maintainers <debian-gcc@lists.debian.org>
+Uploaders: Matthias Klose <doko@debian.org>
+Standards-Version: 4.6.2
+Build-Depends: gcc-12-source (>= 12.3.0-11~),
+  gcc-12-base (>= 12.3.0-11~),
+  binutils-multiarch (>= 2.39-6),
+  autoconf2.69, bison (>= 1:2.3),
+  chrpath, debhelper (>= 9), dpkg-dev (>= 1.21.17), flex, gawk, gettext,
+  gperf (>= 3.0.1), lib32gcc-s1-amd64-cross [amd64 arm64 i386 ppc64el x32], libx32gcc-s1-amd64-cross [amd64 arm64 i386 ppc64el x32], lib64gcc-s1-i386-cross [amd64 arm64 ppc64el x32], libx32gcc-s1-i386-cross [amd64 arm64 ppc64el x32], lib32gcc-s1-s390x-cross [amd64 i386 x32 arm64 ppc64el],
+  binutils-x86-64-linux-gnu (>= 2.39-6) [amd64 arm64 i386 ppc64el x32], binutils-s390x-linux-gnu (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el], binutils-powerpc64le-linux-gnu (>= 2.39-6) [amd64 i386 x32 ppc64 arm64], binutils-aarch64-linux-gnu (>= 2.39-6) [amd64 i386 x32 ppc64el], binutils-arm-linux-gnueabihf (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el], binutils-arm-linux-gnueabi (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el], binutils-i686-linux-gnu (>= 2.39-6) [amd64 arm64 ppc64el x32],
+  libc6-dev-amd64-cross (>= 2.32) [amd64 arm64 i386 ppc64el x32], libc6-dev-s390x-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el], libc6-dev-ppc64el-cross (>= 2.32) [amd64 i386 x32 ppc64 arm64], libc6-dev-arm64-cross (>= 2.32) [amd64 i386 x32 ppc64el], libc6-dev-armhf-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el], libc6-dev-armel-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el], libc6-dev-i386-cross (>= 2.32) [amd64 arm64 ppc64el x32], libc6-dev-i386-amd64-cross [amd64 arm64 i386 ppc64el x32], libc6-dev-x32-amd64-cross [amd64 arm64 i386 ppc64el x32], libc6-dev-amd64-i386-cross [amd64 arm64 ppc64el x32], libc6-dev-x32-i386-cross [amd64 arm64 ppc64el x32], libc6-dev-s390-s390x-cross [amd64 i386 x32 arm64 ppc64el],
+  linux-libc-dev-amd64-cross [amd64 arm64 i386 ppc64el x32], linux-libc-dev-s390x-cross [amd64 i386 x32 arm64 ppc64el], linux-libc-dev-ppc64el-cross [amd64 i386 x32 ppc64 arm64], linux-libc-dev-arm64-cross [amd64 i386 x32 ppc64el], linux-libc-dev-armhf-cross [amd64 i386 x32 arm64 ppc64el], linux-libc-dev-armel-cross [amd64 i386 x32 arm64 ppc64el], linux-libc-dev-i386-cross [amd64 arm64 ppc64el x32],
+  libisl-dev (>= 0.22.1-1~), libmpc-dev,
+  libmpfr-dev (>= 2.3.0), libtool, lsb-release, m4, make (>= 3.81),
+  dwz, pkg-config, libgc-dev,
+  patchutils, procps, quilt, coreutils (>= 2.26) | realpath (>= 1.9.12), sharutils, texinfo (>= 4.3),
+  g++-12,
+  gccgo-12,
+  gdc-12,
+  gm2-12 [!powerpc !ppc64 !x32],
+  gnat-12 [!m32r !sh3 !sh3eb !sh4eb],
+  xz-utils, zlib1g-dev, libzstd-dev, python3, time,
+Build-Conflicts: gcc-multilib,
+  libc6-amd64 [i386 x32], libc6-i386 [amd64 x32], libc6-x32 [amd64 i386]
+Homepage: http://gcc.gnu.org/
+Vcs-Browser: https://salsa.debian.org/toolchain-team/gcc-cross/tree/gcc-12-cross
+Vcs-Git: https://salsa.debian.org/toolchain-team/gcc-cross.git -b gcc-12-cross
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: gcc-12-cross-base
+Architecture: all
+Section: devel
+Priority: optional
+Depends: ${misc:Depends}
+Description: GCC, the GNU Compiler Collection (library base package)
+ This package contains files common to all libraries
+ contained in the GNU Compiler Collection (GCC).
+
+Package: gcc-12-x86-64-linux-gnu-base
+Architecture: arm64 i386 ppc64el x32
+Depends: ${misc:Depends}
+Description: GCC, the GNU Compiler Collection (base package)
+ This package contains files common to all languages and libraries
+ contained in the GNU Compiler Collection (GCC).
+
+Package: libgcc-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libgcc}, ${dep:libssp}, ${dep:libgomp}, ${dep:libitm}, ${dep:libatomic}, ${dep:libbtrace}, ${dep:libasan}, ${dep:liblsan}, ${dep:libtsan}, ${dep:libubsan}, ${dep:libvtv}${dep:libqmath}, ${dep:libunwinddev}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12 (<< ${gcc:SplitVersion})
+Description: GCC support library (development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: lib32gcc-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libgccbiarch}, ${dep:libsspbiarch}, ${dep:libgompbiarch}, ${dep:libitmbiarch}, ${dep:libatomicbiarch}, ${dep:libbtracebiarch}, ${dep:libasanbiarch}, ${dep:liblsanbiarch}, ${dep:libtsanbiarch}, ${dep:libubsanbiarch}, ${dep:libvtvbiarch}, ${dep:libqmathbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12-multilib (<< ${gcc:SplitVersion})
+Description: GCC support library (32 bit development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: libx32gcc-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libgccbiarch}, ${dep:libsspbiarch}, ${dep:libgompbiarch}, ${dep:libitmbiarch}, ${dep:libatomicbiarch}, ${dep:libbtracebiarch}, ${dep:libasanbiarch}, ${dep:liblsanbiarch}, ${dep:libtsanbiarch}, ${dep:libubsanbiarch}, ${dep:libvtvbiarch}, ${dep:libqmathbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12-multilib (<< ${gcc:SplitVersion})
+Description: GCC support library (x32 development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: gcc-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), cpp-12-x86-64-linux-gnu (= ${gcc:Version}), binutils-x86-64-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-amd64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: ${dep:libcdev}
+Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-amd64-cross, libgomp1-dbg-amd64-cross, libitm1-dbg-amd64-cross, libatomic1-dbg-amd64-cross, libtsan2-dbg-amd64-cross, libbacktrace1-dbg-amd64-cross, libquadmath-dbg-amd64-cross, ${dep:libcloog}, ${dep:gold}
+Provides: c-compiler-x86-64-linux-gnu
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This package contains C cross-compiler for amd64 architecture.
+
+Package: gcc-12-multilib-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libcbiarchdev}, ${dep:libgccbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU C compiler (multilib files)
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: gcc-12-plugin-dev-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
+Description: Files for GNU GCC plugin development.
+ This package contains (header) files for GNU GCC plugin development. It
+ is only used for the development of GCC plugins, but not needed to run
+ plugins.
+
+Package: cpp-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This package contains preprocessor configured for amd64 architecture.
+
+Package: g++-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-amd64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: c++-compiler-x86-64-linux-gnu, c++abi2-dev
+Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-amd64-cross
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This package contains C++ cross-compiler for amd64 architecture.
+
+Package: g++-12-multilib-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), g++-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libcxxbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Suggests: ${dep:libcxxbiarchdbg}
+Description: GNU C++ compiler (multilib files)
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libx32asan8-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: AddressSanitizer -- a fast memory error detector (x32)
+ AddressSanitizer (ASan) is a fast memory error detector.  It finds
+ use-after-free and {heap,stack,global}-buffer overflow bugs in C/C++ programs.
+
+Package: gobjc++-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gobjc-12-x86-64-linux-gnu (= ${gcc:Version}), g++-12-x86-64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-amd64-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
+Provides: objc++-compiler-x86-64-linux-gnu
+Description: GNU Objective-C++ compiler
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc++-12-multilib-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gobjc++-12-x86-64-linux-gnu (= ${gcc:Version}), g++-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), gobjc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Objective-C++ compiler (multilib files)
+ This is the GNU Objective-C++ compiler, which compiles Objective-C++ on
+ platforms supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: gobjc-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-amd64-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-amd64-cross
+Provides: objc-compiler-x86-64-linux-gnu
+Description: GNU Objective-C compiler
+ This is the GNU Objective-C compiler, which compiles
+ Objective-C on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc-12-multilib-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gobjc-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libobjcbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Objective-C compiler (multilib files)
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libobjc-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-amd64-cross (= ${gcc:Version}), libobjc4-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: lib32objc-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), lib32gcc-12-dev-amd64-cross (= ${gcc:Version}), lib32objc4-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (32bit development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: libx32objc-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libx32gcc-12-dev-amd64-cross (= ${gcc:Version}), libx32objc4-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (x32 development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: gfortran-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-amd64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: fortran95-compiler
+Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-amd64-cross
+Description: GNU Fortran compiler
+ This is the GNU Fortran compiler, which compiles
+ Fortran on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gfortran-12-multilib-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gfortran-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libgfortranbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Fortran compiler (multilib files)
+ This is the GNU Fortran compiler, which compiles Fortran on platforms
+ supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgfortran-12-dev-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libgfortran5-amd64-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12 (<< ${gcc:SplitVersion})
+Breaks: gfortran-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: lib32gfortran-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), lib32gfortran5-amd64-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Breaks: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (32bit development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: libx32gfortran-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libx32gfortran5-amd64-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Breaks: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (x32 development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: gccgo-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), libgo-12-dev-amd64-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: go-compiler
+Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-amd64-cross
+Description: GNU Go compiler
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler. It uses the gcc backend to generate optimized code.
+
+Package: gccgo-12-multilib-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gccgo-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libgobiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Suggests: ${dep:libgobiarchdbg}
+Description: GNU Go compiler (multilib files)
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgo-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-amd64-cross (= ${gcc:Version}), libgo21-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: lib32go-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), lib32gcc-12-dev-amd64-cross (= ${gcc:Version}), lib32go21-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (32bit development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libx32go-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libx32gcc-12-dev-amd64-cross (= ${gcc:Version}), libx32go21-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (x32 development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libgo21-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: lib32go21-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Conflicts: ${confl:lib32}
+Description: Runtime library for GNU Go applications (32bit)
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libx32go21-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (x32)
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libstdc++-12-dev-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-amd64-cross (= ${gcc:Version}), libstdc++6-amd64-cross (>= ${gcc:Version}), ${dep:libcdev}, ${misc:Depends}
+Provides: libstdc++-dev-amd64-cross, libstdc++-dev-amd64-dcv1, libstdc++6-dev-amd64-dcv1
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for amd64 architecture, for use in cross-compile
+ environment.
+
+Package: libstdc++-12-pic-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libstdc++6-amd64-cross (>= ${gcc:Version}), libstdc++6-12-dev-amd64-cross (= ${gcc:Version}), ${misc:Depends}
+Provides: libstdc++-pic-amd64-dcv1
+Description: GNU Standard C++ Library v3 (shared library subset kit)
+ This is used to develop subsets of the libstdc++ shared libraries for
+ use on custom installation floppies and in embedded systems.
+ .
+ Unless you are making one of those, you will not need this package.
+ .
+ This package contains files for amd64 architecture, for use in cross-compile
+ environment.
+
+Package: lib32stdc++-12-dev-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), lib32gcc-12-dev-amd64-cross (= ${gcc:Version}), lib32stdc++6-amd64-cross (>= ${gcc:Version}), libstdc++6-12-dev (= ${gcc:Version}), ${misc:Depends}
+Description: GNU Standard C++ Library v3 (development files) (amd64)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for amd64 architecture, for use in cross-compile
+ environment.
+
+Package: libx32stdc++-12-dev-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libx32gcc-12-dev-amd64-cross (= ${gcc:Version}), libx32stdc++6-amd64-cross (>= ${gcc:Version}), libstdc++6-12-dev (= ${gcc:Version}), ${misc:Depends}
+Description: GNU Standard C++ Library v3 (development files) (amd64)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for amd64 architecture, for use in cross-compile
+ environment.
+
+Package: gdc-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), g++-12-x86-64-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-amd64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Suggests: ${gdc:multilib}, libgphobos-dbg-amd64-cross
+Description: GNU D compiler (version 2), based on the GCC backend
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ This compiler supports D language version 2.
+
+Package: gdc-12-multilib-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gdc-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Description: GNU D compiler (version 2), based on the GCC backend (multilib files)
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgphobos-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-amd64-cross (= ${gcc:Version}), libgphobos3-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libgphobos3-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: lib32gphobos-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), lib32gcc-12-dev-amd64-cross (= ${gcc:Version}), lib32gphobos3-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (32bit development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: lib32gphobos3-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (32bit runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libx32gphobos-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), libx32gcc-12-dev-amd64-cross (= ${gcc:Version}), libx32gphobos3-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (x32bit development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libx32gphobos3-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (x32bit runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: gnat-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Ada compiler
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: libgnat-12-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: runtime for applications compiled with GNAT (shared library)
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: gm2-12-x86-64-linux-gnu
+Architecture: arm64 i386 ppc64el x32
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+  g++-12-x86-64-linux-gnu (= ${gcc:Version}),
+  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: m2-compiler
+Suggests: ${gm2:multilib}, libgm2-17-dbg-amd64-cross
+Description: GNU Modula-2, based on the GCC backend
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by gcc.  It uses the gcc backend to generate optimised code.
+
+#Package: gm2-12-multilib-x86-64-linux-gnu
+#Architecture: arm64 i386 ppc64el x32
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  gm2-12-x86-64-linux-gnu (= ${gcc:Version}),
+#  gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}),
+#  ${shlibs:Depends}, ${misc:Depends}
+#Provides: m2-compiler
+#Description: GNU Modula-2, based on the GCC backend (multilib files)
+# This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+# supported by gcc.  It uses the gcc backend to generate optimised code.
+# .
+# On architectures with multilib support, the package contains files
+# and dependencies for the non-default multilib architecture(s).
+
+Package: libgm2-12-dev-amd64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+  libgcc-12-dev-amd64-cross (= ${gcc:Version}),
+  libgm2-17-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (development files)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: libgm2-17-amd64-cross
+Architecture: all
+Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (runtime library)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-12-dev-amd64-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  lib64gcc-12-dev-amd64-cross (= ${gcc:Version}),
+#  lib64gm2-17-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-amd64-cross
+#Architecture: all
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-dbg-amd64-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  lib64gm2-17-amd64-cross (= ${gcc:Version}), lib64gcc-s1-dbg-amd64-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-12-dev-amd64-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  lib32gcc-12-dev-amd64-cross (= ${gcc:Version}),
+#  lib32gm2-17-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-amd64-cross
+#Architecture: all
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-dbg-amd64-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  lib32gm2-17-amd64-cross (= ${gcc:Version}), lib32gcc-s1-dbg-amd64-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-12-dev-amd64-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  libx32gcc-12-dev-amd64-cross (= ${gcc:Version}),
+#  libx32gm2-17-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-amd64-cross
+#Architecture: all
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-dbg-amd64-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  libx32gm2-17-amd64-cross (= ${gcc:Version}), libx32gcc-s1-dbg-amd64-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-12-dev-amd64-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  libn32gcc-12-dev-amd64-cross (= ${gcc:Version}),
+#  libn32gm2-17-amd64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-amd64-cross
+#Architecture: all
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-dbg-amd64-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
+#  libn32gm2-17-amd64-cross (= ${gcc:Version}), libn32gcc-s1-dbg-amd64-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: gcc-12-s390x-linux-gnu-base
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: ${misc:Depends}
+Description: GCC, the GNU Compiler Collection (base package)
+ This package contains files common to all languages and libraries
+ contained in the GNU Compiler Collection (GCC).
+
+Package: libgcc-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${dep:libgcc}, ${dep:libssp}, ${dep:libgomp}, ${dep:libitm}, ${dep:libatomic}, ${dep:libbtrace}, ${dep:libasan}, ${dep:liblsan}, ${dep:libtsan}, ${dep:libubsan}, ${dep:libvtv}${dep:libqmath}, ${dep:libunwinddev}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12 (<< ${gcc:SplitVersion})
+Description: GCC support library (development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: lib32gcc-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${dep:libgccbiarch}, ${dep:libsspbiarch}, ${dep:libgompbiarch}, ${dep:libitmbiarch}, ${dep:libatomicbiarch}, ${dep:libbtracebiarch}, ${dep:libasanbiarch}, ${dep:liblsanbiarch}, ${dep:libtsanbiarch}, ${dep:libubsanbiarch}, ${dep:libvtvbiarch}, ${dep:libqmathbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12-multilib (<< ${gcc:SplitVersion})
+Description: GCC support library (32 bit development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: gcc-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), cpp-12-s390x-linux-gnu (= ${gcc:Version}), binutils-s390x-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-s390x-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: ${dep:libcdev}
+Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-s390x-cross, libgomp1-dbg-s390x-cross, libitm1-dbg-s390x-cross, libatomic1-dbg-s390x-cross, libtsan2-dbg-s390x-cross, libbacktrace1-dbg-s390x-cross, libquadmath-dbg-s390x-cross, ${dep:libcloog}, ${dep:gold}
+Provides: c-compiler-s390x-linux-gnu
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This package contains C cross-compiler for s390x architecture.
+
+Package: gcc-12-multilib-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), ${dep:libcbiarchdev}, ${dep:libgccbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU C compiler (multilib files)
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: gcc-12-plugin-dev-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
+Description: Files for GNU GCC plugin development.
+ This package contains (header) files for GNU GCC plugin development. It
+ is only used for the development of GCC plugins, but not needed to run
+ plugins.
+
+Package: cpp-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This package contains preprocessor configured for s390x architecture.
+
+Package: g++-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-s390x-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: c++-compiler-s390x-linux-gnu, c++abi2-dev
+Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-s390x-cross
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This package contains C++ cross-compiler for s390x architecture.
+
+Package: g++-12-multilib-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), g++-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${dep:libcxxbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Suggests: ${dep:libcxxbiarchdbg}
+Description: GNU C++ compiler (multilib files)
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: gobjc++-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gobjc-12-s390x-linux-gnu (= ${gcc:Version}), g++-12-s390x-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-s390x-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
+Provides: objc++-compiler-s390x-linux-gnu
+Description: GNU Objective-C++ compiler
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc++-12-multilib-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gobjc++-12-s390x-linux-gnu (= ${gcc:Version}), g++-12-multilib-s390x-linux-gnu (= ${gcc:Version}), gobjc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Objective-C++ compiler (multilib files)
+ This is the GNU Objective-C++ compiler, which compiles Objective-C++ on
+ platforms supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: gobjc-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-s390x-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-s390x-cross
+Provides: objc-compiler-s390x-linux-gnu
+Description: GNU Objective-C compiler
+ This is the GNU Objective-C compiler, which compiles
+ Objective-C on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc-12-multilib-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gobjc-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${dep:libobjcbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Objective-C compiler (multilib files)
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libobjc-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-s390x-cross (= ${gcc:Version}), libobjc4-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: lib32objc-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), lib32gcc-12-dev-s390x-cross (= ${gcc:Version}), lib32objc4-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (32bit development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: gfortran-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-s390x-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: fortran95-compiler
+Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-s390x-cross
+Description: GNU Fortran compiler
+ This is the GNU Fortran compiler, which compiles
+ Fortran on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gfortran-12-multilib-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gfortran-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${dep:libgfortranbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Fortran compiler (multilib files)
+ This is the GNU Fortran compiler, which compiles Fortran on platforms
+ supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgfortran-12-dev-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), libgfortran5-s390x-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12 (<< ${gcc:SplitVersion})
+Breaks: gfortran-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: lib32gfortran-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), lib32gfortran5-s390x-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Breaks: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (32bit development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: gccgo-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), libgo-12-dev-s390x-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: go-compiler
+Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-s390x-cross
+Description: GNU Go compiler
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler. It uses the gcc backend to generate optimized code.
+
+Package: gccgo-12-multilib-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gccgo-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${dep:libgobiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Suggests: ${dep:libgobiarchdbg}
+Description: GNU Go compiler (multilib files)
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgo-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-s390x-cross (= ${gcc:Version}), libgo21-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: lib32go-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), lib32gcc-12-dev-s390x-cross (= ${gcc:Version}), lib32go21-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (32bit development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libgo21-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: lib32go21-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Conflicts: ${confl:lib32}
+Description: Runtime library for GNU Go applications (32bit)
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libstdc++-12-dev-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-s390x-cross (= ${gcc:Version}), libstdc++6-s390x-cross (>= ${gcc:Version}), ${dep:libcdev}, ${misc:Depends}
+Provides: libstdc++-dev-s390x-cross, libstdc++-dev-s390x-dcv1, libstdc++6-dev-s390x-dcv1
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for s390x architecture, for use in cross-compile
+ environment.
+
+Package: libstdc++-12-pic-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), libstdc++6-s390x-cross (>= ${gcc:Version}), libstdc++6-12-dev-s390x-cross (= ${gcc:Version}), ${misc:Depends}
+Provides: libstdc++-pic-s390x-dcv1
+Description: GNU Standard C++ Library v3 (shared library subset kit)
+ This is used to develop subsets of the libstdc++ shared libraries for
+ use on custom installation floppies and in embedded systems.
+ .
+ Unless you are making one of those, you will not need this package.
+ .
+ This package contains files for s390x architecture, for use in cross-compile
+ environment.
+
+Package: lib32stdc++-12-dev-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), lib32gcc-12-dev-s390x-cross (= ${gcc:Version}), lib32stdc++6-s390x-cross (>= ${gcc:Version}), libstdc++6-12-dev (= ${gcc:Version}), ${misc:Depends}
+Description: GNU Standard C++ Library v3 (development files) (s390x)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for s390x architecture, for use in cross-compile
+ environment.
+
+Package: gdc-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), g++-12-s390x-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-s390x-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Suggests: ${gdc:multilib}, libgphobos-dbg-s390x-cross
+Description: GNU D compiler (version 2), based on the GCC backend
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ This compiler supports D language version 2.
+
+Package: gdc-12-multilib-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gdc-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Description: GNU D compiler (version 2), based on the GCC backend (multilib files)
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgphobos-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-s390x-cross (= ${gcc:Version}), libgphobos3-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libgphobos3-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: lib32gphobos-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), lib32gcc-12-dev-s390x-cross (= ${gcc:Version}), lib32gphobos3-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (32bit development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: lib32gphobos3-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (32bit runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: gnat-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Ada compiler
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: libgnat-12-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: runtime for applications compiled with GNAT (shared library)
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: gm2-12-s390x-linux-gnu
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+  g++-12-s390x-linux-gnu (= ${gcc:Version}),
+  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: m2-compiler
+Suggests: ${gm2:multilib}, libgm2-17-dbg-s390x-cross
+Description: GNU Modula-2, based on the GCC backend
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by gcc.  It uses the gcc backend to generate optimised code.
+
+#Package: gm2-12-multilib-s390x-linux-gnu
+#Architecture: amd64 i386 x32 arm64 ppc64el
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  gm2-12-s390x-linux-gnu (= ${gcc:Version}),
+#  gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}),
+#  ${shlibs:Depends}, ${misc:Depends}
+#Provides: m2-compiler
+#Description: GNU Modula-2, based on the GCC backend (multilib files)
+# This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+# supported by gcc.  It uses the gcc backend to generate optimised code.
+# .
+# On architectures with multilib support, the package contains files
+# and dependencies for the non-default multilib architecture(s).
+
+Package: libgm2-12-dev-s390x-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+  libgcc-12-dev-s390x-cross (= ${gcc:Version}),
+  libgm2-17-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (development files)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: libgm2-17-s390x-cross
+Architecture: all
+Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (runtime library)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-12-dev-s390x-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  lib64gcc-12-dev-s390x-cross (= ${gcc:Version}),
+#  lib64gm2-17-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-s390x-cross
+#Architecture: all
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-dbg-s390x-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  lib64gm2-17-s390x-cross (= ${gcc:Version}), lib64gcc-s1-dbg-s390x-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-12-dev-s390x-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  lib32gcc-12-dev-s390x-cross (= ${gcc:Version}),
+#  lib32gm2-17-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-s390x-cross
+#Architecture: all
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-dbg-s390x-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  lib32gm2-17-s390x-cross (= ${gcc:Version}), lib32gcc-s1-dbg-s390x-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-12-dev-s390x-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  libx32gcc-12-dev-s390x-cross (= ${gcc:Version}),
+#  libx32gm2-17-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-s390x-cross
+#Architecture: all
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-dbg-s390x-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  libx32gm2-17-s390x-cross (= ${gcc:Version}), libx32gcc-s1-dbg-s390x-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-12-dev-s390x-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  libn32gcc-12-dev-s390x-cross (= ${gcc:Version}),
+#  libn32gm2-17-s390x-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-s390x-cross
+#Architecture: all
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-dbg-s390x-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
+#  libn32gm2-17-s390x-cross (= ${gcc:Version}), libn32gcc-s1-dbg-s390x-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: gcc-12-powerpc64le-linux-gnu-base
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: ${misc:Depends}
+Description: GCC, the GNU Compiler Collection (base package)
+ This package contains files common to all languages and libraries
+ contained in the GNU Compiler Collection (GCC).
+
+Package: libgcc-12-dev-ppc64el-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${dep:libgcc}, ${dep:libssp}, ${dep:libgomp}, ${dep:libitm}, ${dep:libatomic}, ${dep:libbtrace}, ${dep:libasan}, ${dep:liblsan}, ${dep:libtsan}, ${dep:libubsan}, ${dep:libvtv}${dep:libqmath}, ${dep:libunwinddev}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12 (<< ${gcc:SplitVersion})
+Description: GCC support library (development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: gcc-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), cpp-12-powerpc64le-linux-gnu (= ${gcc:Version}), binutils-powerpc64le-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-ppc64el-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: ${dep:libcdev}
+Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-ppc64el-cross, libgomp1-dbg-ppc64el-cross, libitm1-dbg-ppc64el-cross, libatomic1-dbg-ppc64el-cross, libtsan2-dbg-ppc64el-cross, libbacktrace1-dbg-ppc64el-cross, libquadmath-dbg-ppc64el-cross, ${dep:libcloog}, ${dep:gold}
+Provides: c-compiler-powerpc64le-linux-gnu
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This package contains C cross-compiler for ppc64el architecture.
+
+Package: gcc-12-plugin-dev-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
+Description: Files for GNU GCC plugin development.
+ This package contains (header) files for GNU GCC plugin development. It
+ is only used for the development of GCC plugins, but not needed to run
+ plugins.
+
+Package: cpp-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This package contains preprocessor configured for ppc64el architecture.
+
+Package: g++-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-ppc64el-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: c++-compiler-powerpc64le-linux-gnu, c++abi2-dev
+Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-ppc64el-cross
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This package contains C++ cross-compiler for ppc64el architecture.
+
+Package: gobjc++-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gobjc-12-powerpc64le-linux-gnu (= ${gcc:Version}), g++-12-powerpc64le-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-ppc64el-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
+Provides: objc++-compiler-powerpc64le-linux-gnu
+Description: GNU Objective-C++ compiler
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-ppc64el-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-ppc64el-cross
+Provides: objc-compiler-powerpc64le-linux-gnu
+Description: GNU Objective-C compiler
+ This is the GNU Objective-C compiler, which compiles
+ Objective-C on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: libobjc-12-dev-ppc64el-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-ppc64el-cross (= ${gcc:Version}), libobjc4-ppc64el-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: gfortran-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-ppc64el-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: fortran95-compiler
+Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-ppc64el-cross
+Description: GNU Fortran compiler
+ This is the GNU Fortran compiler, which compiles
+ Fortran on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: libgfortran-12-dev-ppc64el-cross
+Architecture: all
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), libgfortran5-ppc64el-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12 (<< ${gcc:SplitVersion})
+Breaks: gfortran-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: gccgo-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), libgo-12-dev-ppc64el-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: go-compiler
+Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-ppc64el-cross
+Description: GNU Go compiler
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler. It uses the gcc backend to generate optimized code.
+
+Package: libgo-12-dev-ppc64el-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-ppc64el-cross (= ${gcc:Version}), libgo21-ppc64el-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libgo21-ppc64el-cross
+Architecture: all
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libstdc++-12-dev-ppc64el-cross
+Architecture: all
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-ppc64el-cross (= ${gcc:Version}), libstdc++6-ppc64el-cross (>= ${gcc:Version}), ${dep:libcdev}, ${misc:Depends}
+Provides: libstdc++-dev-ppc64el-cross, libstdc++-dev-ppc64el-dcv1, libstdc++6-dev-ppc64el-dcv1
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for ppc64el architecture, for use in cross-compile
+ environment.
+
+Package: libstdc++-12-pic-ppc64el-cross
+Architecture: all
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), libstdc++6-ppc64el-cross (>= ${gcc:Version}), libstdc++6-12-dev-ppc64el-cross (= ${gcc:Version}), ${misc:Depends}
+Provides: libstdc++-pic-ppc64el-dcv1
+Description: GNU Standard C++ Library v3 (shared library subset kit)
+ This is used to develop subsets of the libstdc++ shared libraries for
+ use on custom installation floppies and in embedded systems.
+ .
+ Unless you are making one of those, you will not need this package.
+ .
+ This package contains files for ppc64el architecture, for use in cross-compile
+ environment.
+
+Package: gdc-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), g++-12-powerpc64le-linux-gnu (= ${gcc:Version}),  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Suggests: ${gdc:multilib}, libgphobos-dbg-ppc64el-cross
+Description: GNU D compiler (version 2), based on the GCC backend
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ This compiler supports D language version 2.
+
+Package: libgphobos-12-dev-ppc64el-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-ppc64el-cross (= ${gcc:Version}), libgphobos3-ppc64el-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libgphobos3-ppc64el-cross
+Architecture: all
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: gnat-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Ada compiler
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: libgnat-12-ppc64el-cross
+Architecture: all
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: runtime for applications compiled with GNAT (shared library)
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: gm2-12-powerpc64le-linux-gnu
+Architecture: amd64 i386 x32 ppc64 arm64
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+  g++-12-powerpc64le-linux-gnu (= ${gcc:Version}),
+  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: m2-compiler
+Suggests: ${gm2:multilib}, libgm2-17-dbg-ppc64el-cross
+Description: GNU Modula-2, based on the GCC backend
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by gcc.  It uses the gcc backend to generate optimised code.
+
+#Package: gm2-12-multilib-powerpc64le-linux-gnu
+#Architecture: amd64 i386 x32 ppc64 arm64
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  gm2-12-powerpc64le-linux-gnu (= ${gcc:Version}),
+#  gcc-12-multilib-powerpc64le-linux-gnu (= ${gcc:Version}),
+#  ${shlibs:Depends}, ${misc:Depends}
+#Provides: m2-compiler
+#Description: GNU Modula-2, based on the GCC backend (multilib files)
+# This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+# supported by gcc.  It uses the gcc backend to generate optimised code.
+# .
+# On architectures with multilib support, the package contains files
+# and dependencies for the non-default multilib architecture(s).
+
+Package: libgm2-12-dev-ppc64el-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+  libgcc-12-dev-ppc64el-cross (= ${gcc:Version}),
+  libgm2-17-ppc64el-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (development files)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: libgm2-17-ppc64el-cross
+Architecture: all
+Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (runtime library)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-12-dev-ppc64el-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  lib64gcc-12-dev-ppc64el-cross (= ${gcc:Version}),
+#  lib64gm2-17-ppc64el-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-ppc64el-cross
+#Architecture: all
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-dbg-ppc64el-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  lib64gm2-17-ppc64el-cross (= ${gcc:Version}), lib64gcc-s1-dbg-ppc64el-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-12-dev-ppc64el-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  lib32gcc-12-dev-ppc64el-cross (= ${gcc:Version}),
+#  lib32gm2-17-ppc64el-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-ppc64el-cross
+#Architecture: all
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-dbg-ppc64el-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  lib32gm2-17-ppc64el-cross (= ${gcc:Version}), lib32gcc-s1-dbg-ppc64el-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-12-dev-ppc64el-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  libx32gcc-12-dev-ppc64el-cross (= ${gcc:Version}),
+#  libx32gm2-17-ppc64el-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-ppc64el-cross
+#Architecture: all
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-dbg-ppc64el-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  libx32gm2-17-ppc64el-cross (= ${gcc:Version}), libx32gcc-s1-dbg-ppc64el-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-12-dev-ppc64el-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  libn32gcc-12-dev-ppc64el-cross (= ${gcc:Version}),
+#  libn32gm2-17-ppc64el-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-ppc64el-cross
+#Architecture: all
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-dbg-ppc64el-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
+#  libn32gm2-17-ppc64el-cross (= ${gcc:Version}), libn32gcc-s1-dbg-ppc64el-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: gcc-12-aarch64-linux-gnu-base
+Architecture: amd64 i386 x32 ppc64el
+Depends: ${misc:Depends}
+Description: GCC, the GNU Compiler Collection (base package)
+ This package contains files common to all languages and libraries
+ contained in the GNU Compiler Collection (GCC).
+
+Package: libgcc-12-dev-arm64-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${dep:libgcc}, ${dep:libssp}, ${dep:libgomp}, ${dep:libitm}, ${dep:libatomic}, ${dep:libbtrace}, ${dep:libasan}, ${dep:liblsan}, ${dep:libtsan}, ${dep:libubsan}, ${dep:libvtv}${dep:libqmath}, ${dep:libunwinddev}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12 (<< ${gcc:SplitVersion})
+Description: GCC support library (development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: gcc-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), cpp-12-aarch64-linux-gnu (= ${gcc:Version}), binutils-aarch64-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-arm64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: ${dep:libcdev}
+Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-arm64-cross, libgomp1-dbg-arm64-cross, libitm1-dbg-arm64-cross, libatomic1-dbg-arm64-cross, libtsan2-dbg-arm64-cross, libbacktrace1-dbg-arm64-cross, libquadmath-dbg-arm64-cross, ${dep:libcloog}, ${dep:gold}
+Provides: c-compiler-aarch64-linux-gnu
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This package contains C cross-compiler for arm64 architecture.
+
+Package: gcc-12-plugin-dev-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
+Description: Files for GNU GCC plugin development.
+ This package contains (header) files for GNU GCC plugin development. It
+ is only used for the development of GCC plugins, but not needed to run
+ plugins.
+
+Package: cpp-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This package contains preprocessor configured for arm64 architecture.
+
+Package: g++-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-arm64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: c++-compiler-aarch64-linux-gnu, c++abi2-dev
+Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-arm64-cross
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This package contains C++ cross-compiler for arm64 architecture.
+
+Package: gobjc++-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gobjc-12-aarch64-linux-gnu (= ${gcc:Version}), g++-12-aarch64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-arm64-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
+Provides: objc++-compiler-aarch64-linux-gnu
+Description: GNU Objective-C++ compiler
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-arm64-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-arm64-cross
+Provides: objc-compiler-aarch64-linux-gnu
+Description: GNU Objective-C compiler
+ This is the GNU Objective-C compiler, which compiles
+ Objective-C on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: libobjc-12-dev-arm64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-arm64-cross (= ${gcc:Version}), libobjc4-arm64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: gfortran-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-arm64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: fortran95-compiler
+Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-arm64-cross
+Description: GNU Fortran compiler
+ This is the GNU Fortran compiler, which compiles
+ Fortran on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: libgfortran-12-dev-arm64-cross
+Architecture: all
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), libgfortran5-arm64-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12 (<< ${gcc:SplitVersion})
+Breaks: gfortran-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: gccgo-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), libgo-12-dev-arm64-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: go-compiler
+Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-arm64-cross
+Description: GNU Go compiler
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler. It uses the gcc backend to generate optimized code.
+
+Package: libgo-12-dev-arm64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-arm64-cross (= ${gcc:Version}), libgo21-arm64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libgo21-arm64-cross
+Architecture: all
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libstdc++-12-dev-arm64-cross
+Architecture: all
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-arm64-cross (= ${gcc:Version}), libstdc++6-arm64-cross (>= ${gcc:Version}), ${dep:libcdev}, ${misc:Depends}
+Provides: libstdc++-dev-arm64-cross, libstdc++-dev-arm64-dcv1, libstdc++6-dev-arm64-dcv1
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for arm64 architecture, for use in cross-compile
+ environment.
+
+Package: libstdc++-12-pic-arm64-cross
+Architecture: all
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), libstdc++6-arm64-cross (>= ${gcc:Version}), libstdc++6-12-dev-arm64-cross (= ${gcc:Version}), ${misc:Depends}
+Provides: libstdc++-pic-arm64-dcv1
+Description: GNU Standard C++ Library v3 (shared library subset kit)
+ This is used to develop subsets of the libstdc++ shared libraries for
+ use on custom installation floppies and in embedded systems.
+ .
+ Unless you are making one of those, you will not need this package.
+ .
+ This package contains files for arm64 architecture, for use in cross-compile
+ environment.
+
+Package: gdc-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), g++-12-aarch64-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-arm64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Suggests: ${gdc:multilib}, libgphobos-dbg-arm64-cross
+Description: GNU D compiler (version 2), based on the GCC backend
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ This compiler supports D language version 2.
+
+Package: libgphobos-12-dev-arm64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-arm64-cross (= ${gcc:Version}), libgphobos3-arm64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libgphobos3-arm64-cross
+Architecture: all
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: gnat-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Ada compiler
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: libgnat-12-arm64-cross
+Architecture: all
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: runtime for applications compiled with GNAT (shared library)
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: gm2-12-aarch64-linux-gnu
+Architecture: amd64 i386 x32 ppc64el
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+  g++-12-aarch64-linux-gnu (= ${gcc:Version}),
+  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: m2-compiler
+Suggests: ${gm2:multilib}, libgm2-17-dbg-arm64-cross
+Description: GNU Modula-2, based on the GCC backend
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by gcc.  It uses the gcc backend to generate optimised code.
+
+#Package: gm2-12-multilib-aarch64-linux-gnu
+#Architecture: amd64 i386 x32 ppc64el
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  gm2-12-aarch64-linux-gnu (= ${gcc:Version}),
+#  gcc-12-multilib-aarch64-linux-gnu (= ${gcc:Version}),
+#  ${shlibs:Depends}, ${misc:Depends}
+#Provides: m2-compiler
+#Description: GNU Modula-2, based on the GCC backend (multilib files)
+# This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+# supported by gcc.  It uses the gcc backend to generate optimised code.
+# .
+# On architectures with multilib support, the package contains files
+# and dependencies for the non-default multilib architecture(s).
+
+Package: libgm2-12-dev-arm64-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+  libgcc-12-dev-arm64-cross (= ${gcc:Version}),
+  libgm2-17-arm64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (development files)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: libgm2-17-arm64-cross
+Architecture: all
+Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (runtime library)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-12-dev-arm64-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  lib64gcc-12-dev-arm64-cross (= ${gcc:Version}),
+#  lib64gm2-17-arm64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-arm64-cross
+#Architecture: all
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-dbg-arm64-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  lib64gm2-17-arm64-cross (= ${gcc:Version}), lib64gcc-s1-dbg-arm64-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-12-dev-arm64-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  lib32gcc-12-dev-arm64-cross (= ${gcc:Version}),
+#  lib32gm2-17-arm64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-arm64-cross
+#Architecture: all
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-dbg-arm64-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  lib32gm2-17-arm64-cross (= ${gcc:Version}), lib32gcc-s1-dbg-arm64-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-12-dev-arm64-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  libx32gcc-12-dev-arm64-cross (= ${gcc:Version}),
+#  libx32gm2-17-arm64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-arm64-cross
+#Architecture: all
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-dbg-arm64-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  libx32gm2-17-arm64-cross (= ${gcc:Version}), libx32gcc-s1-dbg-arm64-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-12-dev-arm64-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  libn32gcc-12-dev-arm64-cross (= ${gcc:Version}),
+#  libn32gm2-17-arm64-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-arm64-cross
+#Architecture: all
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-dbg-arm64-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
+#  libn32gm2-17-arm64-cross (= ${gcc:Version}), libn32gcc-s1-dbg-arm64-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: gcc-12-arm-linux-gnueabihf-base
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: ${misc:Depends}
+Description: GCC, the GNU Compiler Collection (base package)
+ This package contains files common to all languages and libraries
+ contained in the GNU Compiler Collection (GCC).
+
+Package: libgcc-12-dev-armhf-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${dep:libgcc}, ${dep:libssp}, ${dep:libgomp}, ${dep:libitm}, ${dep:libatomic}, ${dep:libbtrace}, ${dep:libasan}, ${dep:liblsan}, ${dep:libtsan}, ${dep:libubsan}, ${dep:libvtv}${dep:libqmath}, ${dep:libunwinddev}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12 (<< ${gcc:SplitVersion})
+Description: GCC support library (development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: gcc-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), cpp-12-arm-linux-gnueabihf (= ${gcc:Version}), binutils-arm-linux-gnueabihf (>= ${binutils:Version}), libgcc-12-dev-armhf-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: ${dep:libcdev}
+Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-armhf-cross, libgomp1-dbg-armhf-cross, libitm1-dbg-armhf-cross, libatomic1-dbg-armhf-cross, libtsan2-dbg-armhf-cross, libbacktrace1-dbg-armhf-cross, libquadmath-dbg-armhf-cross, ${dep:libcloog}, ${dep:gold}
+Provides: c-compiler-arm-linux-gnueabihf
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This package contains C cross-compiler for armhf architecture.
+
+Package: gcc-12-plugin-dev-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
+Description: Files for GNU GCC plugin development.
+ This package contains (header) files for GNU GCC plugin development. It
+ is only used for the development of GCC plugins, but not needed to run
+ plugins.
+
+Package: cpp-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This package contains preprocessor configured for armhf architecture.
+
+Package: g++-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), libstdc++-12-dev-armhf-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: c++-compiler-arm-linux-gnueabihf, c++abi2-dev
+Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-armhf-cross
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This package contains C++ cross-compiler for armhf architecture.
+
+Package: gobjc++-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gobjc-12-arm-linux-gnueabihf (= ${gcc:Version}), g++-12-arm-linux-gnueabihf (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-armhf-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
+Provides: objc++-compiler-arm-linux-gnueabihf
+Description: GNU Objective-C++ compiler
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-armhf-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-armhf-cross
+Provides: objc-compiler-arm-linux-gnueabihf
+Description: GNU Objective-C compiler
+ This is the GNU Objective-C compiler, which compiles
+ Objective-C on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: libobjc-12-dev-armhf-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), libgcc-12-dev-armhf-cross (= ${gcc:Version}), libobjc4-armhf-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: gfortran-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), libgfortran-12-dev-armhf-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: fortran95-compiler
+Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-armhf-cross
+Description: GNU Fortran compiler
+ This is the GNU Fortran compiler, which compiles
+ Fortran on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: libgfortran-12-dev-armhf-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), libgfortran5-armhf-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12 (<< ${gcc:SplitVersion})
+Breaks: gfortran-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: gccgo-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), libgo-12-dev-armhf-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: go-compiler
+Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-armhf-cross
+Description: GNU Go compiler
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler. It uses the gcc backend to generate optimized code.
+
+Package: libgo-12-dev-armhf-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), libgcc-12-dev-armhf-cross (= ${gcc:Version}), libgo21-armhf-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libgo21-armhf-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libstdc++-12-dev-armhf-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), libgcc-12-dev-armhf-cross (= ${gcc:Version}), libstdc++6-armhf-cross (>= ${gcc:Version}), ${dep:libcdev}, ${misc:Depends}
+Provides: libstdc++-dev-armhf-cross, libstdc++-dev-armhf-dcv1, libstdc++6-dev-armhf-dcv1
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for armhf architecture, for use in cross-compile
+ environment.
+
+Package: libstdc++-12-pic-armhf-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), libstdc++6-armhf-cross (>= ${gcc:Version}), libstdc++6-12-dev-armhf-cross (= ${gcc:Version}), ${misc:Depends}
+Provides: libstdc++-pic-armhf-dcv1
+Description: GNU Standard C++ Library v3 (shared library subset kit)
+ This is used to develop subsets of the libstdc++ shared libraries for
+ use on custom installation floppies and in embedded systems.
+ .
+ Unless you are making one of those, you will not need this package.
+ .
+ This package contains files for armhf architecture, for use in cross-compile
+ environment.
+
+Package: gdc-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), g++-12-arm-linux-gnueabihf (= ${gcc:Version}), libgphobos-12-dev-armhf-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Suggests: ${gdc:multilib}, libgphobos-dbg-armhf-cross
+Description: GNU D compiler (version 2), based on the GCC backend
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ This compiler supports D language version 2.
+
+Package: libgphobos-12-dev-armhf-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), libgcc-12-dev-armhf-cross (= ${gcc:Version}), libgphobos3-armhf-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libgphobos3-armhf-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: gnat-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Ada compiler
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: libgnat-12-armhf-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: runtime for applications compiled with GNAT (shared library)
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: gm2-12-arm-linux-gnueabihf
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+  g++-12-arm-linux-gnueabihf (= ${gcc:Version}),
+  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: m2-compiler
+Suggests: ${gm2:multilib}, libgm2-17-dbg-armhf-cross
+Description: GNU Modula-2, based on the GCC backend
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by gcc.  It uses the gcc backend to generate optimised code.
+
+#Package: gm2-12-multilib-arm-linux-gnueabihf
+#Architecture: amd64 i386 x32 arm64 ppc64el
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  gm2-12-arm-linux-gnueabihf (= ${gcc:Version}),
+#  gcc-12-multilib-arm-linux-gnueabihf (= ${gcc:Version}),
+#  ${shlibs:Depends}, ${misc:Depends}
+#Provides: m2-compiler
+#Description: GNU Modula-2, based on the GCC backend (multilib files)
+# This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+# supported by gcc.  It uses the gcc backend to generate optimised code.
+# .
+# On architectures with multilib support, the package contains files
+# and dependencies for the non-default multilib architecture(s).
+
+Package: libgm2-12-dev-armhf-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+  libgcc-12-dev-armhf-cross (= ${gcc:Version}),
+  libgm2-17-armhf-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (development files)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: libgm2-17-armhf-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (runtime library)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-12-dev-armhf-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  lib64gcc-12-dev-armhf-cross (= ${gcc:Version}),
+#  lib64gm2-17-armhf-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-armhf-cross
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-dbg-armhf-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  lib64gm2-17-armhf-cross (= ${gcc:Version}), lib64gcc-s1-dbg-armhf-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-12-dev-armhf-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  lib32gcc-12-dev-armhf-cross (= ${gcc:Version}),
+#  lib32gm2-17-armhf-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-armhf-cross
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-dbg-armhf-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  lib32gm2-17-armhf-cross (= ${gcc:Version}), lib32gcc-s1-dbg-armhf-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-12-dev-armhf-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  libx32gcc-12-dev-armhf-cross (= ${gcc:Version}),
+#  libx32gm2-17-armhf-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-armhf-cross
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-dbg-armhf-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  libx32gm2-17-armhf-cross (= ${gcc:Version}), libx32gcc-s1-dbg-armhf-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-12-dev-armhf-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  libn32gcc-12-dev-armhf-cross (= ${gcc:Version}),
+#  libn32gm2-17-armhf-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-armhf-cross
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-dbg-armhf-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
+#  libn32gm2-17-armhf-cross (= ${gcc:Version}), libn32gcc-s1-dbg-armhf-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: gcc-12-arm-linux-gnueabi-base
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: ${misc:Depends}
+Description: GCC, the GNU Compiler Collection (base package)
+ This package contains files common to all languages and libraries
+ contained in the GNU Compiler Collection (GCC).
+
+Package: libgcc-12-dev-armel-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${dep:libgcc}, ${dep:libssp}, ${dep:libgomp}, ${dep:libitm}, ${dep:libatomic}, ${dep:libbtrace}, ${dep:libasan}, ${dep:liblsan}, ${dep:libtsan}, ${dep:libubsan}, ${dep:libvtv}${dep:libqmath}, ${dep:libunwinddev}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12 (<< ${gcc:SplitVersion})
+Description: GCC support library (development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: gcc-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), cpp-12-arm-linux-gnueabi (= ${gcc:Version}), binutils-arm-linux-gnueabi (>= ${binutils:Version}), libgcc-12-dev-armel-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: ${dep:libcdev}
+Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-armel-cross, libgomp1-dbg-armel-cross, libitm1-dbg-armel-cross, libatomic1-dbg-armel-cross, libtsan2-dbg-armel-cross, libbacktrace1-dbg-armel-cross, libquadmath-dbg-armel-cross, ${dep:libcloog}, ${dep:gold}
+Provides: c-compiler-arm-linux-gnueabi
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This package contains C cross-compiler for armel architecture.
+
+Package: gcc-12-plugin-dev-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
+Description: Files for GNU GCC plugin development.
+ This package contains (header) files for GNU GCC plugin development. It
+ is only used for the development of GCC plugins, but not needed to run
+ plugins.
+
+Package: cpp-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This package contains preprocessor configured for armel architecture.
+
+Package: g++-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), libstdc++-12-dev-armel-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: c++-compiler-arm-linux-gnueabi, c++abi2-dev
+Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-armel-cross
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This package contains C++ cross-compiler for armel architecture.
+
+Package: gobjc++-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gobjc-12-arm-linux-gnueabi (= ${gcc:Version}), g++-12-arm-linux-gnueabi (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-armel-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
+Provides: objc++-compiler-arm-linux-gnueabi
+Description: GNU Objective-C++ compiler
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-armel-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-armel-cross
+Provides: objc-compiler-arm-linux-gnueabi
+Description: GNU Objective-C compiler
+ This is the GNU Objective-C compiler, which compiles
+ Objective-C on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: libobjc-12-dev-armel-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), libgcc-12-dev-armel-cross (= ${gcc:Version}), libobjc4-armel-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: gfortran-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), libgfortran-12-dev-armel-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: fortran95-compiler
+Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-armel-cross
+Description: GNU Fortran compiler
+ This is the GNU Fortran compiler, which compiles
+ Fortran on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: libgfortran-12-dev-armel-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), libgfortran5-armel-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12 (<< ${gcc:SplitVersion})
+Breaks: gfortran-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: gccgo-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), libgo-12-dev-armel-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: go-compiler
+Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-armel-cross
+Description: GNU Go compiler
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler. It uses the gcc backend to generate optimized code.
+
+Package: libgo-12-dev-armel-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), libgcc-12-dev-armel-cross (= ${gcc:Version}), libgo21-armel-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libgo21-armel-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libstdc++-12-dev-armel-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), libgcc-12-dev-armel-cross (= ${gcc:Version}), libstdc++6-armel-cross (>= ${gcc:Version}), ${dep:libcdev}, ${misc:Depends}
+Provides: libstdc++-dev-armel-cross, libstdc++-dev-armel-dcv1, libstdc++6-dev-armel-dcv1
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for armel architecture, for use in cross-compile
+ environment.
+
+Package: libstdc++-12-pic-armel-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), libstdc++6-armel-cross (>= ${gcc:Version}), libstdc++6-12-dev-armel-cross (= ${gcc:Version}), ${misc:Depends}
+Provides: libstdc++-pic-armel-dcv1
+Description: GNU Standard C++ Library v3 (shared library subset kit)
+ This is used to develop subsets of the libstdc++ shared libraries for
+ use on custom installation floppies and in embedded systems.
+ .
+ Unless you are making one of those, you will not need this package.
+ .
+ This package contains files for armel architecture, for use in cross-compile
+ environment.
+
+Package: gdc-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), g++-12-arm-linux-gnueabi (= ${gcc:Version}), libgphobos-12-dev-armel-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Suggests: ${gdc:multilib}, libgphobos-dbg-armel-cross
+Description: GNU D compiler (version 2), based on the GCC backend
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ This compiler supports D language version 2.
+
+Package: libgphobos-12-dev-armel-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), libgcc-12-dev-armel-cross (= ${gcc:Version}), libgphobos3-armel-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libgphobos3-armel-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: gnat-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Ada compiler
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: libgnat-12-armel-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: runtime for applications compiled with GNAT (shared library)
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: gm2-12-arm-linux-gnueabi
+Architecture: amd64 i386 x32 arm64 ppc64el
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+  g++-12-arm-linux-gnueabi (= ${gcc:Version}),
+  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: m2-compiler
+Suggests: ${gm2:multilib}, libgm2-17-dbg-armel-cross
+Description: GNU Modula-2, based on the GCC backend
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by gcc.  It uses the gcc backend to generate optimised code.
+
+#Package: gm2-12-multilib-arm-linux-gnueabi
+#Architecture: amd64 i386 x32 arm64 ppc64el
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  gm2-12-arm-linux-gnueabi (= ${gcc:Version}),
+#  gcc-12-multilib-arm-linux-gnueabi (= ${gcc:Version}),
+#  ${shlibs:Depends}, ${misc:Depends}
+#Provides: m2-compiler
+#Description: GNU Modula-2, based on the GCC backend (multilib files)
+# This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+# supported by gcc.  It uses the gcc backend to generate optimised code.
+# .
+# On architectures with multilib support, the package contains files
+# and dependencies for the non-default multilib architecture(s).
+
+Package: libgm2-12-dev-armel-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+  libgcc-12-dev-armel-cross (= ${gcc:Version}),
+  libgm2-17-armel-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (development files)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: libgm2-17-armel-cross
+Architecture: all
+Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (runtime library)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-12-dev-armel-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  lib64gcc-12-dev-armel-cross (= ${gcc:Version}),
+#  lib64gm2-17-armel-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-armel-cross
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-dbg-armel-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  lib64gm2-17-armel-cross (= ${gcc:Version}), lib64gcc-s1-dbg-armel-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-12-dev-armel-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  lib32gcc-12-dev-armel-cross (= ${gcc:Version}),
+#  lib32gm2-17-armel-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-armel-cross
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-dbg-armel-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  lib32gm2-17-armel-cross (= ${gcc:Version}), lib32gcc-s1-dbg-armel-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-12-dev-armel-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  libx32gcc-12-dev-armel-cross (= ${gcc:Version}),
+#  libx32gm2-17-armel-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-armel-cross
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-dbg-armel-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  libx32gm2-17-armel-cross (= ${gcc:Version}), libx32gcc-s1-dbg-armel-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-12-dev-armel-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  libn32gcc-12-dev-armel-cross (= ${gcc:Version}),
+#  libn32gm2-17-armel-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-armel-cross
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-dbg-armel-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
+#  libn32gm2-17-armel-cross (= ${gcc:Version}), libn32gcc-s1-dbg-armel-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: gcc-12-i686-linux-gnu-base
+Architecture: amd64 arm64 ppc64el x32
+Depends: ${misc:Depends}
+Description: GCC, the GNU Compiler Collection (base package)
+ This package contains files common to all languages and libraries
+ contained in the GNU Compiler Collection (GCC).
+
+Package: libgcc-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libgcc}, ${dep:libssp}, ${dep:libgomp}, ${dep:libitm}, ${dep:libatomic}, ${dep:libbtrace}, ${dep:libasan}, ${dep:liblsan}, ${dep:libtsan}, ${dep:libubsan}, ${dep:libvtv}${dep:libqmath}, ${dep:libunwinddev}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12 (<< ${gcc:SplitVersion})
+Description: GCC support library (development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: lib64gcc-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libgccbiarch}, ${dep:libsspbiarch}, ${dep:libgompbiarch}, ${dep:libitmbiarch}, ${dep:libatomicbiarch}, ${dep:libbtracebiarch}, ${dep:libasanbiarch}, ${dep:liblsanbiarch}, ${dep:libtsanbiarch}, ${dep:libubsanbiarch}, ${dep:libvtvbiarch}, ${dep:libqmathbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12-multilib (<< ${gcc:SplitVersion})
+Description: GCC support library (64bit development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: libx32gcc-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Recommends: ${dep:libcdev}
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libgccbiarch}, ${dep:libsspbiarch}, ${dep:libgompbiarch}, ${dep:libitmbiarch}, ${dep:libatomicbiarch}, ${dep:libbtracebiarch}, ${dep:libasanbiarch}, ${dep:liblsanbiarch}, ${dep:libtsanbiarch}, ${dep:libubsanbiarch}, ${dep:libvtvbiarch}, ${dep:libqmathbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gcc-12-multilib (<< ${gcc:SplitVersion})
+Description: GCC support library (x32 development files)
+ This package contains the headers and static library files necessary for
+ building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
+
+Package: gcc-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), cpp-12-i686-linux-gnu (= ${gcc:Version}), binutils-i686-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-i386-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Recommends: ${dep:libcdev}
+Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-i386-cross, libgomp1-dbg-i386-cross, libitm1-dbg-i386-cross, libatomic1-dbg-i386-cross, libtsan2-dbg-i386-cross, libbacktrace1-dbg-i386-cross, libquadmath-dbg-i386-cross, ${dep:libcloog}, ${dep:gold}
+Provides: c-compiler-i686-linux-gnu
+Description: GNU C compiler
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ This package contains C cross-compiler for i386 architecture.
+
+Package: gcc-12-multilib-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), ${dep:libcbiarchdev}, ${dep:libgccbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU C compiler (multilib files)
+ This is the GNU C compiler, a fairly portable optimizing compiler for C.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: gcc-12-plugin-dev-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
+Description: Files for GNU GCC plugin development.
+ This package contains (header) files for GNU GCC plugin development. It
+ is only used for the development of GCC plugins, but not needed to run
+ plugins.
+
+Package: cpp-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
+Description: GNU C preprocessor
+ A macro processor that is used automatically by the GNU C compiler
+ to transform programs before actual compilation.
+ .
+ This package has been separated from gcc for the benefit of those who
+ require the preprocessor but not the compiler.
+ .
+ This package contains preprocessor configured for i386 architecture.
+
+Package: g++-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-i386-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: c++-compiler-i686-linux-gnu, c++abi2-dev
+Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-i386-cross
+Description: GNU C++ compiler
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ This package contains C++ cross-compiler for i386 architecture.
+
+Package: g++-12-multilib-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), g++-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${dep:libcxxbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Suggests: ${dep:libcxxbiarchdbg}
+Description: GNU C++ compiler (multilib files)
+ This is the GNU C++ compiler, a fairly portable optimizing compiler for C++.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libx32asan8-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: AddressSanitizer -- a fast memory error detector (x32)
+ AddressSanitizer (ASan) is a fast memory error detector.  It finds
+ use-after-free and {heap,stack,global}-buffer overflow bugs in C/C++ programs.
+
+Package: gobjc++-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gobjc-12-i686-linux-gnu (= ${gcc:Version}), g++-12-i686-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-i386-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
+Provides: objc++-compiler-i686-linux-gnu
+Description: GNU Objective-C++ compiler
+ This is the GNU Objective-C++ compiler, which compiles
+ Objective-C++ on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc++-12-multilib-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gobjc++-12-i686-linux-gnu (= ${gcc:Version}), g++-12-multilib-i686-linux-gnu (= ${gcc:Version}), gobjc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Objective-C++ compiler (multilib files)
+ This is the GNU Objective-C++ compiler, which compiles Objective-C++ on
+ platforms supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: gobjc-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-i386-cross (= ${gcc:Version}), ${misc:Depends}
+Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-i386-cross
+Provides: objc-compiler-i686-linux-gnu
+Description: GNU Objective-C compiler
+ This is the GNU Objective-C compiler, which compiles
+ Objective-C on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gobjc-12-multilib-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gobjc-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${dep:libobjcbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Objective-C compiler (multilib files)
+ This is the GNU Objective-C compiler, which compiles Objective-C on platforms
+ supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libobjc-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-i386-cross (= ${gcc:Version}), libobjc4-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: lib64objc-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), lib64gcc-12-dev-i386-cross (= ${gcc:Version}), lib64objc4-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (64bit development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: libx32objc-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libx32gcc-12-dev-i386-cross (= ${gcc:Version}), libx32objc4-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Replaces: gobjc-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Objective-C applications (x32 development files)
+ This package contains the headers and static library files needed to build
+ GNU ObjC applications.
+
+Package: gfortran-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-i386-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: fortran95-compiler
+Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-i386-cross
+Description: GNU Fortran compiler
+ This is the GNU Fortran compiler, which compiles
+ Fortran on platforms supported by the gcc compiler. It uses the
+ gcc backend to generate optimized code.
+
+Package: gfortran-12-multilib-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gfortran-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${dep:libgfortranbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Fortran compiler (multilib files)
+ This is the GNU Fortran compiler, which compiles Fortran on platforms
+ supported by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgfortran-12-dev-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libgfortran5-i386-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12 (<< ${gcc:SplitVersion})
+Breaks: gfortran-12 (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: lib64gfortran-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), lib64gfortran5-i386-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Breaks: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (64bit development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: libx32gfortran-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libx32gfortran5-i386-cross, ${shlibs:Depends}, ${misc:Depends}
+Replaces: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Breaks: gfortran-12-multilib (<< ${gcc:SplitVersion})
+Description: Runtime library for GNU Fortran applications (x32 development files)
+ This package contains the headers and static library files needed to build
+ GNU Fortran applications.
+
+Package: gccgo-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), libgo-12-dev-i386-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: go-compiler
+Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-i386-cross
+Description: GNU Go compiler
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler. It uses the gcc backend to generate optimized code.
+
+Package: gccgo-12-multilib-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gccgo-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${dep:libgobiarchdev}, ${shlibs:Depends}, ${misc:Depends}
+Suggests: ${dep:libgobiarchdbg}
+Description: GNU Go compiler (multilib files)
+ This is the GNU Go compiler, which compiles Go on platforms supported
+ by the gcc compiler.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgo-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-i386-cross (= ${gcc:Version}), libgo21-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: lib64go-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), lib64gcc-12-dev-i386-cross (= ${gcc:Version}), lib64go21-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (64bit development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libx32go-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libx32gcc-12-dev-i386-cross (= ${gcc:Version}), libx32go21-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (x32 development files)
+ This package contains the headers and static library files needed to build
+ GNU Go applications.
+
+Package: libgo21-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: lib64go21-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (64bit)
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libx32go21-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: Runtime library for GNU Go applications (x32)
+ Library needed for GNU Go applications linked against the
+ shared library.
+
+Package: libstdc++-12-dev-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-i386-cross (= ${gcc:Version}), libstdc++6-i386-cross (>= ${gcc:Version}), ${dep:libcdev}, ${misc:Depends}
+Provides: libstdc++-dev-i386-cross, libstdc++-dev-i386-dcv1, libstdc++6-dev-i386-dcv1
+Description: GNU Standard C++ Library v3 (development files)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for i386 architecture, for use in cross-compile
+ environment.
+
+Package: libstdc++-12-pic-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libstdc++6-i386-cross (>= ${gcc:Version}), libstdc++6-12-dev-i386-cross (= ${gcc:Version}), ${misc:Depends}
+Provides: libstdc++-pic-i386-dcv1
+Description: GNU Standard C++ Library v3 (shared library subset kit)
+ This is used to develop subsets of the libstdc++ shared libraries for
+ use on custom installation floppies and in embedded systems.
+ .
+ Unless you are making one of those, you will not need this package.
+ .
+ This package contains files for i386 architecture, for use in cross-compile
+ environment.
+
+Package: lib64stdc++-12-dev-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), lib64gcc-12-dev-i386-cross (= ${gcc:Version}), lib64stdc++6-i386-cross (>= ${gcc:Version}), libstdc++6-12-dev (= ${gcc:Version}), ${misc:Depends}
+Description: GNU Standard C++ Library v3 (development files) (i386)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for i386 architecture, for use in cross-compile
+ environment.
+
+Package: libx32stdc++-12-dev-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libx32gcc-12-dev-i386-cross (= ${gcc:Version}), libx32stdc++6-i386-cross (>= ${gcc:Version}), libstdc++6-12-dev (= ${gcc:Version}), ${misc:Depends}
+Description: GNU Standard C++ Library v3 (development files) (i386)
+ This package contains the headers and static library files necessary for
+ building C++ programs which use libstdc++.
+ .
+ libstdc++-v3 is a complete rewrite from the previous libstdc++-v2, which
+ was included up to g++-2.95. The first version of libstdc++-v3 appeared
+ in g++-3.0.
+ .
+ This package contains files for i386 architecture, for use in cross-compile
+ environment.
+
+Package: gdc-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), g++-12-i686-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-i386-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Suggests: ${gdc:multilib}, libgphobos-dbg-i386-cross
+Description: GNU D compiler (version 2), based on the GCC backend
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ This compiler supports D language version 2.
+
+Package: gdc-12-multilib-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gdc-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Provides: d-compiler, d-v2-compiler
+Description: GNU D compiler (version 2), based on the GCC backend (multilib files)
+ This is the GNU D compiler, which compiles D on platforms supported by gcc.
+ It uses the gcc backend to generate optimised code.
+ .
+ On architectures with multilib support, the package contains files
+ and dependencies for the non-default multilib architecture(s).
+
+Package: libgphobos-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libgcc-12-dev-i386-cross (= ${gcc:Version}), libgphobos3-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libgphobos3-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: lib64gphobos-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), lib64gcc-12-dev-i386-cross (= ${gcc:Version}), lib64gphobos3-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (64bit development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: lib64gphobos3-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (64bit runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libx32gphobos-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), libx32gcc-12-dev-i386-cross (= ${gcc:Version}), libx32gphobos3-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (x32bit development files)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: libx32gphobos3-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+Description: Phobos D standard library (x32bit runtime library)
+ This is the Phobos standard library that comes with the D2 compiler.
+
+Package: gnat-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Ada compiler
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: libgnat-12-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: runtime for applications compiled with GNAT (shared library)
+ GNAT is a compiler for the Ada programming language. It produces optimized
+ code on platforms supported by the GNU Compiler Collection (GCC).
+
+Package: gm2-12-i686-linux-gnu
+Architecture: amd64 arm64 ppc64el x32
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+  g++-12-i686-linux-gnu (= ${gcc:Version}),
+  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
+Provides: m2-compiler
+Suggests: ${gm2:multilib}, libgm2-17-dbg-i386-cross
+Description: GNU Modula-2, based on the GCC backend
+ This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+ supported by gcc.  It uses the gcc backend to generate optimised code.
+
+#Package: gm2-12-multilib-i686-linux-gnu
+#Architecture: amd64 arm64 ppc64el x32
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  gm2-12-i686-linux-gnu (= ${gcc:Version}),
+#  gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}),
+#  ${shlibs:Depends}, ${misc:Depends}
+#Provides: m2-compiler
+#Description: GNU Modula-2, based on the GCC backend (multilib files)
+# This is the GNU Modula-2 compiler, which compiles Modula-2 on platforms
+# supported by gcc.  It uses the gcc backend to generate optimised code.
+# .
+# On architectures with multilib support, the package contains files
+# and dependencies for the non-default multilib architecture(s).
+
+Package: libgm2-12-dev-i386-cross
+Architecture: all
+Section: libdevel
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+  libgcc-12-dev-i386-cross (= ${gcc:Version}),
+  libgm2-17-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (development files)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+Package: libgm2-17-i386-cross
+Architecture: all
+Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+Description: GNU Modula-2 standard library (runtime library)
+ This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-12-dev-i386-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  lib64gcc-12-dev-i386-cross (= ${gcc:Version}),
+#  lib64gm2-17-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-i386-cross
+#Architecture: all
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib64gm2-17-dbg-i386-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  lib64gm2-17-i386-cross (= ${gcc:Version}), lib64gcc-s1-dbg-i386-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (64bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-12-dev-i386-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  lib32gcc-12-dev-i386-cross (= ${gcc:Version}),
+#  lib32gm2-17-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-i386-cross
+#Architecture: all
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: lib32gm2-17-dbg-i386-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  lib32gm2-17-i386-cross (= ${gcc:Version}), lib32gcc-s1-dbg-i386-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-12-dev-i386-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  libx32gcc-12-dev-i386-cross (= ${gcc:Version}),
+#  libx32gm2-17-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-i386-cross
+#Architecture: all
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libx32gm2-17-dbg-i386-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  libx32gm2-17-i386-cross (= ${gcc:Version}), libx32gcc-s1-dbg-i386-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (x32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-12-dev-i386-cross
+#Architecture: all
+#Section: libdevel
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  libn32gcc-12-dev-i386-cross (= ${gcc:Version}),
+#  libn32gm2-17-i386-cross (>= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit development files)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-i386-cross
+#Architecture: all
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${dep:libcbiarch}, ${shlibs:Depends}, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit runtime library)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
+
+#Package: libn32gm2-17-dbg-i386-cross
+#Section: debug
+#Architecture: all
+#Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
+#  libn32gm2-17-i386-cross (= ${gcc:Version}), libn32gcc-s1-dbg-i386-cross, ${misc:Depends}
+#Description: GNU Modula-2 standard library (n32bit debug symbols)
+# This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
