@@ -58,6 +58,7 @@ HOST_ARCHS_armel = amd64 i386 x32 arm64 ppc64el
 HOST_ARCHS_arm64 = amd64 i386 x32 ppc64el
 HOST_ARCHS_hppa = amd64 i386 x32
 HOST_ARCHS_i386 = amd64 arm64 ppc64el x32
+HOST_ARCHS_loong64 = amd64 i386 x32 arm64 ppc64el
 HOST_ARCHS_m68k = amd64 i386 x32
 HOST_ARCHS_powerpc = amd64 i386 x32 ppc64el
 HOST_ARCHS_ppc64 = amd64 i386 x32
@@ -82,11 +83,15 @@ ifeq (,$(CROSS_ARCHS))
   ifeq ($(DEB_NAME_ACT),gcc-12-cross)
     ifneq (,$(filter $(HOST_ARCH),amd64 i386 x32))
       CROSS_ARCHS  = amd64
-      CROSS_ARCHS  += s390x ppc64el arm64 armhf armel \
+      CROSS_ARCHS  += s390x ppc64el arm64 armhf armel loong64 riscv64 \
 	$(if $(filter $(vendor), Ubuntu), powerpc) \
         $(if $(filter $(HOST_ARCH), amd64 x32), i386)
     else ifeq ($(HOST_ARCH),arm64)
-      CROSS_ARCHS = amd64 armel armhf i386 ppc64el s390x
+      CROSS_ARCHS = amd64 armel armhf i386 ppc64el s390x loong64 riscv64
+    else ifeq ($(HOST_ARCH),loong64)
+      CROSS_ARCHS = amd64 arm64 armel armhf i386 ppc64el s390x riscv64
+    else ifeq ($(HOST_ARCH),arm64)
+      CROSS_ARCHS = amd64 arm64 armel armhf i386 ppc64el s390x loong64
     else ifeq ($(HOST_ARCH),ppc64)
       CROSS_ARCHS = ppc64el
     else ifeq ($(HOST_ARCH),ppc64el)
