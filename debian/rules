@@ -87,11 +87,11 @@ ifeq (,$(CROSS_ARCHS))
 	$(if $(filter $(vendor), Ubuntu), powerpc) \
         $(if $(filter $(HOST_ARCH), amd64 x32), i386)
     else ifeq ($(HOST_ARCH),arm64)
-      CROSS_ARCHS = amd64 armel armhf i386 ppc64el s390x loong64 riscv64
+      CROSS_ARCHS = amd64 armel armhf ppc64el s390x loong64 riscv64
     else ifeq ($(HOST_ARCH),loong64)
-      CROSS_ARCHS = amd64 arm64 armel armhf i386 ppc64el s390x riscv64
-    else ifeq ($(HOST_ARCH),arm64)
-      CROSS_ARCHS = amd64 arm64 armel armhf i386 ppc64el s390x loong64
+      CROSS_ARCHS = amd64 arm64 armel armhf ppc64el s390x riscv64
+    else ifeq ($(HOST_ARCH),riscv64)
+      CROSS_ARCHS = amd64 arm64 armel armhf ppc64el s390x loong64
     else ifeq ($(HOST_ARCH),ppc64)
       CROSS_ARCHS = ppc64el
     else ifeq ($(HOST_ARCH),ppc64el)
