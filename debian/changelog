@@ -1,3 +1,9 @@
+gcc-12-cross (19+deepin1) UNRELEASED; urgency=medium
+
+  * Add loong64 and riscv64 to cross hosts.
+
+ -- Mingcong Bai <baimingcong@uniontech.com>  Mon, 10 Feb 2025 17:52:09 +0800
+
 gcc-12-cross (19) unstable; urgency=medium
 
   * Build using gcc 12.3.0-11.
