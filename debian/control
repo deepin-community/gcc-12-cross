@@ -9,10 +9,10 @@ Build-Depends: gcc-12-source (>= 12.3.0-11~),
   binutils-multiarch (>= 2.39-6),
   autoconf2.69, bison (>= 1:2.3),
   chrpath, debhelper (>= 9), dpkg-dev (>= 1.21.17), flex, gawk, gettext,
-  gperf (>= 3.0.1), lib32gcc-s1-amd64-cross [amd64 arm64 i386 ppc64el x32], libx32gcc-s1-amd64-cross [amd64 arm64 i386 ppc64el x32], lib64gcc-s1-i386-cross [amd64 arm64 ppc64el x32], libx32gcc-s1-i386-cross [amd64 arm64 ppc64el x32], lib32gcc-s1-s390x-cross [amd64 i386 x32 arm64 ppc64el],
-  binutils-x86-64-linux-gnu (>= 2.39-6) [amd64 arm64 i386 ppc64el x32], binutils-s390x-linux-gnu (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el], binutils-powerpc64le-linux-gnu (>= 2.39-6) [amd64 i386 x32 ppc64 arm64], binutils-aarch64-linux-gnu (>= 2.39-6) [amd64 i386 x32 ppc64el], binutils-arm-linux-gnueabihf (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el], binutils-arm-linux-gnueabi (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el], binutils-loongarch64-linux-gnu (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el], binutils-riscv64-linux-gnu (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el], binutils-i686-linux-gnu (>= 2.39-6) [amd64 arm64 ppc64el x32],
-  libc6-dev-amd64-cross (>= 2.32) [amd64 arm64 i386 ppc64el x32], libc6-dev-s390x-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el], libc6-dev-ppc64el-cross (>= 2.32) [amd64 i386 x32 ppc64 arm64], libc6-dev-arm64-cross (>= 2.32) [amd64 i386 x32 ppc64el], libc6-dev-armhf-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el], libc6-dev-armel-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el], libc6-dev-loong64-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el], libc6-dev-riscv64-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el], libc6-dev-i386-cross (>= 2.32) [amd64 arm64 ppc64el x32], libc6-dev-i386-amd64-cross [amd64 arm64 i386 ppc64el x32], libc6-dev-x32-amd64-cross [amd64 arm64 i386 ppc64el x32], libc6-dev-amd64-i386-cross [amd64 arm64 ppc64el x32], libc6-dev-x32-i386-cross [amd64 arm64 ppc64el x32], libc6-dev-s390-s390x-cross [amd64 i386 x32 arm64 ppc64el],
-  linux-libc-dev-amd64-cross [amd64 arm64 i386 ppc64el x32], linux-libc-dev-s390x-cross [amd64 i386 x32 arm64 ppc64el], linux-libc-dev-ppc64el-cross [amd64 i386 x32 ppc64 arm64], linux-libc-dev-arm64-cross [amd64 i386 x32 ppc64el], linux-libc-dev-armhf-cross [amd64 i386 x32 arm64 ppc64el], linux-libc-dev-armel-cross [amd64 i386 x32 arm64 ppc64el], linux-libc-dev-loong64-cross [amd64 i386 x32 arm64 ppc64el], linux-libc-dev-riscv64-cross [amd64 i386 x32 arm64 ppc64el], linux-libc-dev-i386-cross [amd64 arm64 ppc64el x32],
+  gperf (>= 3.0.1), lib32gcc-s1-amd64-cross [amd64 arm64 i386 ppc64el x32 loong64 riscv64], libx32gcc-s1-amd64-cross [amd64 arm64 i386 ppc64el x32 loong64 riscv64], lib64gcc-s1-i386-cross [amd64 arm64 ppc64el x32 loong64 riscv64], libx32gcc-s1-i386-cross [amd64 arm64 ppc64el x32 loong64 riscv64], lib32gcc-s1-s390x-cross [amd64 i386 x32 arm64 ppc64el loong64 riscv64],
+  binutils-x86-64-linux-gnu (>= 2.39-6) [amd64 arm64 i386 ppc64el x32 loong64 riscv64], binutils-s390x-linux-gnu (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el loong64 riscv64], binutils-powerpc64le-linux-gnu (>= 2.39-6) [amd64 i386 x32 ppc64 arm64 loong64 riscv64], binutils-aarch64-linux-gnu (>= 2.39-6) [amd64 i386 x32 ppc64el loong64 riscv64], binutils-arm-linux-gnueabihf (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el loong64 riscv64], binutils-arm-linux-gnueabi (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el loong64 riscv64], binutils-loongarch64-linux-gnu (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el riscv64], binutils-riscv64-linux-gnu (>= 2.39-6) [amd64 i386 x32 arm64 ppc64el loong64], binutils-i686-linux-gnu (>= 2.39-6) [amd64 arm64 ppc64el x32 loong64 riscv64],
+  libc6-dev-amd64-cross (>= 2.32) [amd64 arm64 i386 ppc64el x32 loong64 riscv64], libc6-dev-s390x-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el loong64 riscv64], libc6-dev-ppc64el-cross (>= 2.32) [amd64 i386 x32 ppc64 arm64 loong64 riscv64], libc6-dev-arm64-cross (>= 2.32) [amd64 i386 x32 ppc64el loong64 riscv64], libc6-dev-armhf-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el loong64 riscv64], libc6-dev-armel-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el loong64 riscv64], libc6-dev-loong64-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el riscv64], libc6-dev-riscv64-cross (>= 2.32) [amd64 i386 x32 arm64 ppc64el loong64], libc6-dev-i386-cross (>= 2.32) [amd64 arm64 ppc64el x32 loong64 riscv64], libc6-dev-i386-amd64-cross [amd64 arm64 i386 ppc64el x32 loong64 riscv64], libc6-dev-x32-amd64-cross [amd64 arm64 i386 ppc64el x32 loong64 riscv64], libc6-dev-amd64-i386-cross [amd64 arm64 ppc64el x32 loong64 riscv64], libc6-dev-x32-i386-cross [amd64 arm64 ppc64el x32 loong64 riscv64], libc6-dev-s390-s390x-cross [amd64 i386 x32 arm64 ppc64el loong64 riscv64],
+  linux-libc-dev-amd64-cross [amd64 arm64 i386 ppc64el x32 loong64 riscv64], linux-libc-dev-s390x-cross [amd64 i386 x32 arm64 ppc64el loong64 riscv64], linux-libc-dev-ppc64el-cross [amd64 i386 x32 ppc64 arm64 loong64 riscv64], linux-libc-dev-arm64-cross [amd64 i386 x32 ppc64el loong64 riscv64], linux-libc-dev-armhf-cross [amd64 i386 x32 arm64 ppc64el loong64 riscv64], linux-libc-dev-armel-cross [amd64 i386 x32 arm64 ppc64el loong64 riscv64], linux-libc-dev-loong64-cross [amd64 i386 x32 arm64 ppc64el riscv64], linux-libc-dev-riscv64-cross [amd64 i386 x32 arm64 ppc64el loong64], linux-libc-dev-i386-cross [amd64 arm64 ppc64el x32 loong64 riscv64],
   libisl-dev (>= 0.22.1-1~), libmpc-dev,
   libmpfr-dev (>= 2.3.0), libtool, lsb-release, m4, make (>= 3.81),
   dwz, pkg-config, libgc-dev,
@@ -39,7 +39,7 @@ Description: GCC, the GNU Compiler Collection (library base package)
  contained in the GNU Compiler Collection (GCC).
 
 Package: gcc-12-x86-64-linux-gnu-base
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -76,7 +76,7 @@ Description: GCC support library (x32 development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), cpp-12-x86-64-linux-gnu (= ${gcc:Version}), binutils-x86-64-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-amd64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-amd64-cross, libgomp1-dbg-amd64-cross, libitm1-dbg-amd64-cross, libatomic1-dbg-amd64-cross, libtsan2-dbg-amd64-cross, libbacktrace1-dbg-amd64-cross, libquadmath-dbg-amd64-cross, ${dep:libcloog}, ${dep:gold}
@@ -87,7 +87,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for amd64 architecture.
 
 Package: gcc-12-multilib-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libcbiarchdev}, ${dep:libgccbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU C compiler (multilib files)
  This is the GNU C compiler, a fairly portable optimizing compiler for C.
@@ -96,7 +96,7 @@ Description: GNU C compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gcc-12-plugin-dev-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -104,7 +104,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -117,7 +117,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for amd64 architecture.
 
 Package: g++-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-amd64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-x86-64-linux-gnu, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-amd64-cross
@@ -127,7 +127,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for amd64 architecture.
 
 Package: g++-12-multilib-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), g++-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libcxxbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Suggests: ${dep:libcxxbiarchdbg}
 Description: GNU C++ compiler (multilib files)
@@ -144,7 +144,7 @@ Description: AddressSanitizer -- a fast memory error detector (x32)
  use-after-free and {heap,stack,global}-buffer overflow bugs in C/C++ programs.
 
 Package: gobjc++-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gobjc-12-x86-64-linux-gnu (= ${gcc:Version}), g++-12-x86-64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-amd64-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-x86-64-linux-gnu
@@ -154,7 +154,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc++-12-multilib-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gobjc++-12-x86-64-linux-gnu (= ${gcc:Version}), g++-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), gobjc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Objective-C++ compiler (multilib files)
  This is the GNU Objective-C++ compiler, which compiles Objective-C++ on
@@ -164,7 +164,7 @@ Description: GNU Objective-C++ compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gobjc-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-amd64-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-amd64-cross
 Provides: objc-compiler-x86-64-linux-gnu
@@ -174,7 +174,7 @@ Description: GNU Objective-C compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-multilib-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gobjc-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libobjcbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Objective-C compiler (multilib files)
  This is the GNU Objective-C compiler, which compiles Objective-C on platforms
@@ -211,7 +211,7 @@ Description: Runtime library for GNU Objective-C applications (x32 development f
  GNU ObjC applications.
 
 Package: gfortran-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-amd64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-amd64-cross
@@ -221,7 +221,7 @@ Description: GNU Fortran compiler
  gcc backend to generate optimized code.
 
 Package: gfortran-12-multilib-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gfortran-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libgfortranbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Fortran compiler (multilib files)
  This is the GNU Fortran compiler, which compiles Fortran on platforms
@@ -260,7 +260,7 @@ Description: Runtime library for GNU Fortran applications (x32 development files
  GNU Fortran applications.
 
 Package: gccgo-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (= ${gcc:Version}), libgo-12-dev-amd64-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-amd64-cross
@@ -269,7 +269,7 @@ Description: GNU Go compiler
  by the gcc compiler. It uses the gcc backend to generate optimized code.
 
 Package: gccgo-12-multilib-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gccgo-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${dep:libgobiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Suggests: ${dep:libgobiarchdbg}
 Description: GNU Go compiler (multilib files)
@@ -382,7 +382,7 @@ Description: GNU Standard C++ Library v3 (development files) (amd64)
  environment.
 
 Package: gdc-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), g++-12-x86-64-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-amd64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-amd64-cross
@@ -393,7 +393,7 @@ Description: GNU D compiler (version 2), based on the GCC backend
  This compiler supports D language version 2.
 
 Package: gdc-12-multilib-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gdc-12-x86-64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Description: GNU D compiler (version 2), based on the GCC backend (multilib files)
@@ -443,7 +443,7 @@ Description: Phobos D standard library (x32bit runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}), gcc-12-x86-64-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -457,7 +457,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-x86-64-linux-gnu
-Architecture: arm64 i386 ppc64el x32
+Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
   g++-12-x86-64-linux-gnu (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -468,7 +468,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-x86-64-linux-gnu
-#Architecture: arm64 i386 ppc64el x32
+#Architecture: arm64 i386 ppc64el x32 loong64 riscv64
 #Depends: gcc-12-x86-64-linux-gnu-base (= ${gcc:Version}),
 #  gm2-12-x86-64-linux-gnu (= ${gcc:Version}),
 #  gcc-12-multilib-x86-64-linux-gnu (= ${gcc:Version}),
@@ -589,7 +589,7 @@ Description: GNU Modula-2 standard library (runtime library)
 # This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
 
 Package: gcc-12-s390x-linux-gnu-base
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -616,7 +616,7 @@ Description: GCC support library (32 bit development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), cpp-12-s390x-linux-gnu (= ${gcc:Version}), binutils-s390x-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-s390x-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-s390x-cross, libgomp1-dbg-s390x-cross, libitm1-dbg-s390x-cross, libatomic1-dbg-s390x-cross, libtsan2-dbg-s390x-cross, libbacktrace1-dbg-s390x-cross, libquadmath-dbg-s390x-cross, ${dep:libcloog}, ${dep:gold}
@@ -627,7 +627,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for s390x architecture.
 
 Package: gcc-12-multilib-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), ${dep:libcbiarchdev}, ${dep:libgccbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU C compiler (multilib files)
  This is the GNU C compiler, a fairly portable optimizing compiler for C.
@@ -636,7 +636,7 @@ Description: GNU C compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gcc-12-plugin-dev-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -644,7 +644,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -657,7 +657,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for s390x architecture.
 
 Package: g++-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-s390x-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-s390x-linux-gnu, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-s390x-cross
@@ -667,7 +667,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for s390x architecture.
 
 Package: g++-12-multilib-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), g++-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${dep:libcxxbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Suggests: ${dep:libcxxbiarchdbg}
 Description: GNU C++ compiler (multilib files)
@@ -677,7 +677,7 @@ Description: GNU C++ compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gobjc++-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gobjc-12-s390x-linux-gnu (= ${gcc:Version}), g++-12-s390x-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-s390x-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-s390x-linux-gnu
@@ -687,7 +687,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc++-12-multilib-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gobjc++-12-s390x-linux-gnu (= ${gcc:Version}), g++-12-multilib-s390x-linux-gnu (= ${gcc:Version}), gobjc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Objective-C++ compiler (multilib files)
  This is the GNU Objective-C++ compiler, which compiles Objective-C++ on
@@ -697,7 +697,7 @@ Description: GNU Objective-C++ compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gobjc-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-s390x-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-s390x-cross
 Provides: objc-compiler-s390x-linux-gnu
@@ -707,7 +707,7 @@ Description: GNU Objective-C compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-multilib-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gobjc-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${dep:libobjcbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Objective-C compiler (multilib files)
  This is the GNU Objective-C compiler, which compiles Objective-C on platforms
@@ -735,7 +735,7 @@ Description: Runtime library for GNU Objective-C applications (32bit development
  GNU ObjC applications.
 
 Package: gfortran-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-s390x-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-s390x-cross
@@ -745,7 +745,7 @@ Description: GNU Fortran compiler
  gcc backend to generate optimized code.
 
 Package: gfortran-12-multilib-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gfortran-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${dep:libgfortranbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Fortran compiler (multilib files)
  This is the GNU Fortran compiler, which compiles Fortran on platforms
@@ -774,7 +774,7 @@ Description: Runtime library for GNU Fortran applications (32bit development fil
  GNU Fortran applications.
 
 Package: gccgo-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (= ${gcc:Version}), libgo-12-dev-s390x-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-s390x-cross
@@ -783,7 +783,7 @@ Description: GNU Go compiler
  by the gcc compiler. It uses the gcc backend to generate optimized code.
 
 Package: gccgo-12-multilib-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gccgo-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${dep:libgobiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Suggests: ${dep:libgobiarchdbg}
 Description: GNU Go compiler (multilib files)
@@ -867,7 +867,7 @@ Description: GNU Standard C++ Library v3 (development files) (s390x)
  environment.
 
 Package: gdc-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), g++-12-s390x-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-s390x-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-s390x-cross
@@ -878,7 +878,7 @@ Description: GNU D compiler (version 2), based on the GCC backend
  This compiler supports D language version 2.
 
 Package: gdc-12-multilib-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gdc-12-s390x-linux-gnu (= ${gcc:Version}), gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Description: GNU D compiler (version 2), based on the GCC backend (multilib files)
@@ -915,7 +915,7 @@ Description: Phobos D standard library (32bit runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}), gcc-12-s390x-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -929,7 +929,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-s390x-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
   g++-12-s390x-linux-gnu (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -940,7 +940,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-s390x-linux-gnu
-#Architecture: amd64 i386 x32 arm64 ppc64el
+#Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 #Depends: gcc-12-s390x-linux-gnu-base (= ${gcc:Version}),
 #  gm2-12-s390x-linux-gnu (= ${gcc:Version}),
 #  gcc-12-multilib-s390x-linux-gnu (= ${gcc:Version}),
@@ -1061,7 +1061,7 @@ Description: GNU Modula-2 standard library (runtime library)
 # This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
 
 Package: gcc-12-powerpc64le-linux-gnu-base
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -1078,7 +1078,7 @@ Description: GCC support library (development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), cpp-12-powerpc64le-linux-gnu (= ${gcc:Version}), binutils-powerpc64le-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-ppc64el-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-ppc64el-cross, libgomp1-dbg-ppc64el-cross, libitm1-dbg-ppc64el-cross, libatomic1-dbg-ppc64el-cross, libtsan2-dbg-ppc64el-cross, libbacktrace1-dbg-ppc64el-cross, libquadmath-dbg-ppc64el-cross, ${dep:libcloog}, ${dep:gold}
@@ -1089,7 +1089,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for ppc64el architecture.
 
 Package: gcc-12-plugin-dev-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -1097,7 +1097,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -1110,7 +1110,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for ppc64el architecture.
 
 Package: g++-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-ppc64el-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-powerpc64le-linux-gnu, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-ppc64el-cross
@@ -1120,7 +1120,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for ppc64el architecture.
 
 Package: gobjc++-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gobjc-12-powerpc64le-linux-gnu (= ${gcc:Version}), g++-12-powerpc64le-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-ppc64el-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-powerpc64le-linux-gnu
@@ -1130,7 +1130,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-ppc64el-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-ppc64el-cross
 Provides: objc-compiler-powerpc64le-linux-gnu
@@ -1149,7 +1149,7 @@ Description: Runtime library for GNU Objective-C applications (development files
  GNU ObjC applications.
 
 Package: gfortran-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-ppc64el-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-ppc64el-cross
@@ -1168,7 +1168,7 @@ Description: Runtime library for GNU Fortran applications (development files)
  GNU Fortran applications.
 
 Package: gccgo-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (= ${gcc:Version}), libgo-12-dev-ppc64el-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-ppc64el-cross
@@ -1220,7 +1220,7 @@ Description: GNU Standard C++ Library v3 (shared library subset kit)
  environment.
 
 Package: gdc-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), g++-12-powerpc64le-linux-gnu (= ${gcc:Version}),  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-ppc64el-cross
@@ -1244,7 +1244,7 @@ Description: Phobos D standard library (runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}), gcc-12-powerpc64le-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -1258,7 +1258,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-powerpc64le-linux-gnu
-Architecture: amd64 i386 x32 ppc64 arm64
+Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
   g++-12-powerpc64le-linux-gnu (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -1269,7 +1269,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-powerpc64le-linux-gnu
-#Architecture: amd64 i386 x32 ppc64 arm64
+#Architecture: amd64 i386 x32 ppc64 arm64 loong64 riscv64
 #Depends: gcc-12-powerpc64le-linux-gnu-base (= ${gcc:Version}),
 #  gm2-12-powerpc64le-linux-gnu (= ${gcc:Version}),
 #  gcc-12-multilib-powerpc64le-linux-gnu (= ${gcc:Version}),
@@ -1390,7 +1390,7 @@ Description: GNU Modula-2 standard library (runtime library)
 # This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
 
 Package: gcc-12-aarch64-linux-gnu-base
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -1407,7 +1407,7 @@ Description: GCC support library (development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), cpp-12-aarch64-linux-gnu (= ${gcc:Version}), binutils-aarch64-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-arm64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-arm64-cross, libgomp1-dbg-arm64-cross, libitm1-dbg-arm64-cross, libatomic1-dbg-arm64-cross, libtsan2-dbg-arm64-cross, libbacktrace1-dbg-arm64-cross, libquadmath-dbg-arm64-cross, ${dep:libcloog}, ${dep:gold}
@@ -1418,7 +1418,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for arm64 architecture.
 
 Package: gcc-12-plugin-dev-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -1426,7 +1426,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -1439,7 +1439,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for arm64 architecture.
 
 Package: g++-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-arm64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-aarch64-linux-gnu, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-arm64-cross
@@ -1449,7 +1449,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for arm64 architecture.
 
 Package: gobjc++-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gobjc-12-aarch64-linux-gnu (= ${gcc:Version}), g++-12-aarch64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-arm64-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-aarch64-linux-gnu
@@ -1459,7 +1459,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-arm64-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-arm64-cross
 Provides: objc-compiler-aarch64-linux-gnu
@@ -1478,7 +1478,7 @@ Description: Runtime library for GNU Objective-C applications (development files
  GNU ObjC applications.
 
 Package: gfortran-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-arm64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-arm64-cross
@@ -1497,7 +1497,7 @@ Description: Runtime library for GNU Fortran applications (development files)
  GNU Fortran applications.
 
 Package: gccgo-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (= ${gcc:Version}), libgo-12-dev-arm64-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-arm64-cross
@@ -1549,7 +1549,7 @@ Description: GNU Standard C++ Library v3 (shared library subset kit)
  environment.
 
 Package: gdc-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), g++-12-aarch64-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-arm64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-arm64-cross
@@ -1573,7 +1573,7 @@ Description: Phobos D standard library (runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-aarch64-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -1587,7 +1587,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-aarch64-linux-gnu
-Architecture: amd64 i386 x32 ppc64el
+Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
   g++-12-aarch64-linux-gnu (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -1598,7 +1598,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-aarch64-linux-gnu
-#Architecture: amd64 i386 x32 ppc64el
+#Architecture: amd64 i386 x32 ppc64el loong64 riscv64
 #Depends: gcc-12-aarch64-linux-gnu-base (= ${gcc:Version}),
 #  gm2-12-aarch64-linux-gnu (= ${gcc:Version}),
 #  gcc-12-multilib-aarch64-linux-gnu (= ${gcc:Version}),
@@ -1719,7 +1719,7 @@ Description: GNU Modula-2 standard library (runtime library)
 # This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
 
 Package: gcc-12-arm-linux-gnueabihf-base
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -1736,7 +1736,7 @@ Description: GCC support library (development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), cpp-12-arm-linux-gnueabihf (= ${gcc:Version}), binutils-arm-linux-gnueabihf (>= ${binutils:Version}), libgcc-12-dev-armhf-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-armhf-cross, libgomp1-dbg-armhf-cross, libitm1-dbg-armhf-cross, libatomic1-dbg-armhf-cross, libtsan2-dbg-armhf-cross, libbacktrace1-dbg-armhf-cross, libquadmath-dbg-armhf-cross, ${dep:libcloog}, ${dep:gold}
@@ -1747,7 +1747,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for armhf architecture.
 
 Package: gcc-12-plugin-dev-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -1755,7 +1755,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -1768,7 +1768,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for armhf architecture.
 
 Package: g++-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), libstdc++-12-dev-armhf-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-arm-linux-gnueabihf, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-armhf-cross
@@ -1778,7 +1778,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for armhf architecture.
 
 Package: gobjc++-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gobjc-12-arm-linux-gnueabihf (= ${gcc:Version}), g++-12-arm-linux-gnueabihf (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-armhf-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-arm-linux-gnueabihf
@@ -1788,7 +1788,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-armhf-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-armhf-cross
 Provides: objc-compiler-arm-linux-gnueabihf
@@ -1807,7 +1807,7 @@ Description: Runtime library for GNU Objective-C applications (development files
  GNU ObjC applications.
 
 Package: gfortran-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), libgfortran-12-dev-armhf-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-armhf-cross
@@ -1826,7 +1826,7 @@ Description: Runtime library for GNU Fortran applications (development files)
  GNU Fortran applications.
 
 Package: gccgo-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (= ${gcc:Version}), libgo-12-dev-armhf-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-armhf-cross
@@ -1878,7 +1878,7 @@ Description: GNU Standard C++ Library v3 (shared library subset kit)
  environment.
 
 Package: gdc-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), g++-12-arm-linux-gnueabihf (= ${gcc:Version}), libgphobos-12-dev-armhf-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-armhf-cross
@@ -1902,7 +1902,7 @@ Description: Phobos D standard library (runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabihf (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -1916,7 +1916,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-arm-linux-gnueabihf
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
   g++-12-arm-linux-gnueabihf (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -1927,7 +1927,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-arm-linux-gnueabihf
-#Architecture: amd64 i386 x32 arm64 ppc64el
+#Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 #Depends: gcc-12-arm-linux-gnueabihf-base (= ${gcc:Version}),
 #  gm2-12-arm-linux-gnueabihf (= ${gcc:Version}),
 #  gcc-12-multilib-arm-linux-gnueabihf (= ${gcc:Version}),
@@ -2048,7 +2048,7 @@ Description: GNU Modula-2 standard library (runtime library)
 # This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
 
 Package: gcc-12-arm-linux-gnueabi-base
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -2065,7 +2065,7 @@ Description: GCC support library (development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), cpp-12-arm-linux-gnueabi (= ${gcc:Version}), binutils-arm-linux-gnueabi (>= ${binutils:Version}), libgcc-12-dev-armel-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-armel-cross, libgomp1-dbg-armel-cross, libitm1-dbg-armel-cross, libatomic1-dbg-armel-cross, libtsan2-dbg-armel-cross, libbacktrace1-dbg-armel-cross, libquadmath-dbg-armel-cross, ${dep:libcloog}, ${dep:gold}
@@ -2076,7 +2076,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for armel architecture.
 
 Package: gcc-12-plugin-dev-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -2084,7 +2084,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -2097,7 +2097,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for armel architecture.
 
 Package: g++-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), libstdc++-12-dev-armel-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-arm-linux-gnueabi, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-armel-cross
@@ -2107,7 +2107,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for armel architecture.
 
 Package: gobjc++-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gobjc-12-arm-linux-gnueabi (= ${gcc:Version}), g++-12-arm-linux-gnueabi (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-armel-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-arm-linux-gnueabi
@@ -2117,7 +2117,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-armel-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-armel-cross
 Provides: objc-compiler-arm-linux-gnueabi
@@ -2136,7 +2136,7 @@ Description: Runtime library for GNU Objective-C applications (development files
  GNU ObjC applications.
 
 Package: gfortran-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), libgfortran-12-dev-armel-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-armel-cross
@@ -2155,7 +2155,7 @@ Description: Runtime library for GNU Fortran applications (development files)
  GNU Fortran applications.
 
 Package: gccgo-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (= ${gcc:Version}), libgo-12-dev-armel-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-armel-cross
@@ -2207,7 +2207,7 @@ Description: GNU Standard C++ Library v3 (shared library subset kit)
  environment.
 
 Package: gdc-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), g++-12-arm-linux-gnueabi (= ${gcc:Version}), libgphobos-12-dev-armel-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-armel-cross
@@ -2231,7 +2231,7 @@ Description: Phobos D standard library (runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}), gcc-12-arm-linux-gnueabi (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -2245,7 +2245,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-arm-linux-gnueabi
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
   g++-12-arm-linux-gnueabi (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -2256,7 +2256,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-arm-linux-gnueabi
-#Architecture: amd64 i386 x32 arm64 ppc64el
+#Architecture: amd64 i386 x32 arm64 ppc64el loong64 riscv64
 #Depends: gcc-12-arm-linux-gnueabi-base (= ${gcc:Version}),
 #  gm2-12-arm-linux-gnueabi (= ${gcc:Version}),
 #  gcc-12-multilib-arm-linux-gnueabi (= ${gcc:Version}),
@@ -2377,7 +2377,7 @@ Description: GNU Modula-2 standard library (runtime library)
 # This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
 
 Package: gcc-12-loongarch64-linux-gnu-base
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -2564,7 +2564,7 @@ Description: GCC support library (x32 development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), cpp-12-loongarch64-linux-gnu (= ${gcc:Version}), binutils-loongarch64-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-loong64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-loong64-cross, libgomp1-dbg-loong64-cross, libitm1-dbg-loong64-cross, libatomic1-dbg-loong64-cross, libtsan2-dbg-loong64-cross, libbacktrace1-dbg-loong64-cross, libquadmath-dbg-loong64-cross, ${dep:libcloog}, ${dep:gold}
@@ -2575,7 +2575,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for loong64 architecture.
 
 Package: gcc-12-multilib-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-loongarch64-linux-gnu (= ${gcc:Version}), ${dep:libcbiarchdev}, ${dep:libgccbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU C compiler (multilib files)
  This is the GNU C compiler, a fairly portable optimizing compiler for C.
@@ -2584,7 +2584,7 @@ Description: GNU C compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gcc-12-plugin-dev-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-loongarch64-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -2592,7 +2592,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -2605,7 +2605,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for loong64 architecture.
 
 Package: g++-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-loongarch64-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-loong64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-loongarch64-linux-gnu, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-loong64-cross
@@ -2615,7 +2615,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for loong64 architecture.
 
 Package: g++-12-multilib-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), g++-12-loongarch64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-loongarch64-linux-gnu (= ${gcc:Version}), ${dep:libcxxbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Suggests: ${dep:libcxxbiarchdbg}
 Description: GNU C++ compiler (multilib files)
@@ -3096,7 +3096,7 @@ Description: GCC Quad-Precision Math Library (x32 32bit)
  targets the REAL(16) type in the GNU Fortran compiler.
 
 Package: gobjc++-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gobjc-12-loongarch64-linux-gnu (= ${gcc:Version}), g++-12-loongarch64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-loong64-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-loongarch64-linux-gnu
@@ -3106,7 +3106,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc++-12-multilib-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gobjc++-12-loongarch64-linux-gnu (= ${gcc:Version}), g++-12-multilib-loongarch64-linux-gnu (= ${gcc:Version}), gobjc-12-multilib-loongarch64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Objective-C++ compiler (multilib files)
  This is the GNU Objective-C++ compiler, which compiles Objective-C++ on
@@ -3116,7 +3116,7 @@ Description: GNU Objective-C++ compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gobjc-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-loongarch64-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-loong64-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-loong64-cross
 Provides: objc-compiler-loongarch64-linux-gnu
@@ -3126,7 +3126,7 @@ Description: GNU Objective-C compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-multilib-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gobjc-12-loongarch64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-loongarch64-linux-gnu (= ${gcc:Version}), ${dep:libobjcbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Objective-C compiler (multilib files)
  This is the GNU Objective-C compiler, which compiles Objective-C on platforms
@@ -3242,7 +3242,7 @@ Description: Runtime library for GNU Objective-C applications (soft float develo
  GNU ObjC applications.
 
 Package: gfortran-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-loongarch64-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-loong64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-loong64-cross
@@ -3252,7 +3252,7 @@ Description: GNU Fortran compiler
  gcc backend to generate optimized code.
 
 Package: gfortran-12-multilib-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gfortran-12-loongarch64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-loongarch64-linux-gnu (= ${gcc:Version}), ${dep:libgfortranbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Fortran compiler (multilib files)
  This is the GNU Fortran compiler, which compiles Fortran on platforms
@@ -3381,7 +3381,7 @@ Description: Runtime library for GNU Fortran applications (soft float ABI develo
  GNU Fortran applications.
 
 Package: gccgo-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-loongarch64-linux-gnu (= ${gcc:Version}), libgo-12-dev-loong64-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-loong64-cross
@@ -3390,7 +3390,7 @@ Description: GNU Go compiler
  by the gcc compiler. It uses the gcc backend to generate optimized code.
 
 Package: gccgo-12-multilib-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gccgo-12-loongarch64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-loongarch64-linux-gnu (= ${gcc:Version}), ${dep:libgobiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Suggests: ${dep:libgobiarchdbg}
 Description: GNU Go compiler (multilib files)
@@ -3692,7 +3692,7 @@ Description: GNU Standard C++ Library v3 (development files) (loong64)
  environment.
 
 Package: gdc-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), g++-12-loongarch64-linux-gnu (= ${gcc:Version}),  ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-loong64-cross
@@ -3703,7 +3703,7 @@ Description: GNU D compiler (version 2), based on the GCC backend
  This compiler supports D language version 2.
 
 Package: gdc-12-multilib-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gdc-12-loongarch64-linux-gnu (= ${gcc:Version}), gcc-12-multilib-loongarch64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Description: GNU D compiler (version 2), based on the GCC backend (multilib files)
@@ -3779,14 +3779,14 @@ Description: Phobos D standard library (n32bit runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gcc-12-loongarch64-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gnat-12-sjlj-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}), gnat-12-loongarch64-linux-gnu (= ${gcc:Version}), ${misc:Depends}
 Description: GNU Ada compiler (setjump/longjump runtime library)
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -3804,7 +3804,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-loongarch64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}),
   g++-12-loongarch64-linux-gnu (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -3815,7 +3815,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-loongarch64-linux-gnu
-#Architecture: amd64 i386 x32 arm64 ppc64el
+#Architecture: amd64 i386 x32 arm64 ppc64el riscv64
 #Depends: gcc-12-loongarch64-linux-gnu-base (= ${gcc:Version}),
 #  gm2-12-loongarch64-linux-gnu (= ${gcc:Version}),
 #  gcc-12-multilib-loongarch64-linux-gnu (= ${gcc:Version}),
@@ -3936,7 +3936,7 @@ Description: GNU Modula-2 standard library (runtime library)
 # This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
 
 Package: gcc-12-riscv64-linux-gnu-base
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -3953,7 +3953,7 @@ Description: GCC support library (development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), cpp-12-riscv64-linux-gnu (= ${gcc:Version}), binutils-riscv64-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-riscv64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-riscv64-cross, libgomp1-dbg-riscv64-cross, libitm1-dbg-riscv64-cross, libatomic1-dbg-riscv64-cross, libtsan2-dbg-riscv64-cross, libbacktrace1-dbg-riscv64-cross, libquadmath-dbg-riscv64-cross, ${dep:libcloog}, ${dep:gold}
@@ -3964,7 +3964,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for riscv64 architecture.
 
 Package: gcc-12-plugin-dev-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), gcc-12-riscv64-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -3972,7 +3972,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -3985,7 +3985,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for riscv64 architecture.
 
 Package: g++-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), gcc-12-riscv64-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-riscv64-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-riscv64-linux-gnu, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-riscv64-cross
@@ -3995,7 +3995,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for riscv64 architecture.
 
 Package: gobjc++-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), gobjc-12-riscv64-linux-gnu (= ${gcc:Version}), g++-12-riscv64-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-riscv64-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-riscv64-linux-gnu
@@ -4005,7 +4005,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), gcc-12-riscv64-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-riscv64-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-riscv64-cross
 Provides: objc-compiler-riscv64-linux-gnu
@@ -4024,7 +4024,7 @@ Description: Runtime library for GNU Objective-C applications (development files
  GNU ObjC applications.
 
 Package: gfortran-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), gcc-12-riscv64-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-riscv64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-riscv64-cross
@@ -4043,7 +4043,7 @@ Description: Runtime library for GNU Fortran applications (development files)
  GNU Fortran applications.
 
 Package: gccgo-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), gcc-12-riscv64-linux-gnu (= ${gcc:Version}), libgo-12-dev-riscv64-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-riscv64-cross
@@ -4095,7 +4095,7 @@ Description: GNU Standard C++ Library v3 (shared library subset kit)
  environment.
 
 Package: gdc-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), g++-12-riscv64-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-riscv64-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-riscv64-cross
@@ -4119,7 +4119,7 @@ Description: Phobos D standard library (runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}), gcc-12-riscv64-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -4133,7 +4133,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-riscv64-linux-gnu
-Architecture: amd64 i386 x32 arm64 ppc64el
+Architecture: amd64 i386 x32 arm64 ppc64el loong64
 Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}),
   g++-12-riscv64-linux-gnu (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -4144,7 +4144,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-riscv64-linux-gnu
-#Architecture: amd64 i386 x32 arm64 ppc64el
+#Architecture: amd64 i386 x32 arm64 ppc64el loong64
 #Depends: gcc-12-riscv64-linux-gnu-base (= ${gcc:Version}),
 #  gm2-12-riscv64-linux-gnu (= ${gcc:Version}),
 #  gcc-12-multilib-riscv64-linux-gnu (= ${gcc:Version}),
@@ -4265,7 +4265,7 @@ Description: GNU Modula-2 standard library (runtime library)
 # This is the GNU Modula-2 standard library that comes with the GNU Modula-2 compiler.
 
 Package: gcc-12-i686-linux-gnu-base
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: ${misc:Depends}
 Description: GCC, the GNU Compiler Collection (base package)
  This package contains files common to all languages and libraries
@@ -4302,7 +4302,7 @@ Description: GCC support library (x32 development files)
  building C programs which use libgcc, libgomp, libquadmath, libssp or libitm.
 
 Package: gcc-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), cpp-12-i686-linux-gnu (= ${gcc:Version}), binutils-i686-linux-gnu (>= ${binutils:Version}), libgcc-12-dev-i386-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: ${dep:libcdev}
 Suggests: ${gcc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), gcc-12-locales (>= ${gcc:SoftVersion}), libgcc-s1-dbg-i386-cross, libgomp1-dbg-i386-cross, libitm1-dbg-i386-cross, libatomic1-dbg-i386-cross, libtsan2-dbg-i386-cross, libbacktrace1-dbg-i386-cross, libquadmath-dbg-i386-cross, ${dep:libcloog}, ${dep:gold}
@@ -4313,7 +4313,7 @@ Description: GNU C compiler
  This package contains C cross-compiler for i386 architecture.
 
 Package: gcc-12-multilib-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), ${dep:libcbiarchdev}, ${dep:libgccbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU C compiler (multilib files)
  This is the GNU C compiler, a fairly portable optimizing compiler for C.
@@ -4322,7 +4322,7 @@ Description: GNU C compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gcc-12-plugin-dev-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), libgmp-dev (>= 2:5.0.1~), ${shlibs:Depends}, ${misc:Depends}
 Description: Files for GNU GCC plugin development.
  This package contains (header) files for GNU GCC plugin development. It
@@ -4330,7 +4330,7 @@ Description: Files for GNU GCC plugin development.
  plugins.
 
 Package: cpp-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Suggests: gcc-12-locales (>= ${gcc:SoftVersion})
 Description: GNU C preprocessor
@@ -4343,7 +4343,7 @@ Description: GNU C preprocessor
  This package contains preprocessor configured for i386 architecture.
 
 Package: g++-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), libstdc++-12-dev-i386-cross (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: c++-compiler-i686-linux-gnu, c++abi2-dev
 Suggests: ${gxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libstdc++6-12-dbg-i386-cross
@@ -4353,7 +4353,7 @@ Description: GNU C++ compiler
  This package contains C++ cross-compiler for i386 architecture.
 
 Package: g++-12-multilib-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), g++-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${dep:libcxxbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Suggests: ${dep:libcxxbiarchdbg}
 Description: GNU C++ compiler (multilib files)
@@ -4370,7 +4370,7 @@ Description: AddressSanitizer -- a fast memory error detector (x32)
  use-after-free and {heap,stack,global}-buffer overflow bugs in C/C++ programs.
 
 Package: gobjc++-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gobjc-12-i686-linux-gnu (= ${gcc:Version}), g++-12-i686-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, libobjc-12-dev-i386-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjcxx:multilib}, gcc-12-doc (>= ${gcc:SoftVersion})
 Provides: objc++-compiler-i686-linux-gnu
@@ -4380,7 +4380,7 @@ Description: GNU Objective-C++ compiler
  gcc backend to generate optimized code.
 
 Package: gobjc++-12-multilib-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gobjc++-12-i686-linux-gnu (= ${gcc:Version}), g++-12-multilib-i686-linux-gnu (= ${gcc:Version}), gobjc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Objective-C++ compiler (multilib files)
  This is the GNU Objective-C++ compiler, which compiles Objective-C++ on
@@ -4390,7 +4390,7 @@ Description: GNU Objective-C++ compiler (multilib files)
  and dependencies for the non-default multilib architecture(s).
 
 Package: gobjc-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, libobjc-12-dev-i386-cross (= ${gcc:Version}), ${misc:Depends}
 Suggests: ${gobjc:multilib}, gcc-12-doc (>= ${gcc:SoftVersion}), libobjc4-dbg-i386-cross
 Provides: objc-compiler-i686-linux-gnu
@@ -4400,7 +4400,7 @@ Description: GNU Objective-C compiler
  gcc backend to generate optimized code.
 
 Package: gobjc-12-multilib-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gobjc-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${dep:libobjcbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Objective-C compiler (multilib files)
  This is the GNU Objective-C compiler, which compiles Objective-C on platforms
@@ -4437,7 +4437,7 @@ Description: Runtime library for GNU Objective-C applications (x32 development f
  GNU ObjC applications.
 
 Package: gfortran-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), libgfortran-12-dev-i386-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: fortran95-compiler
 Suggests: ${gfortran:multilib}, gfortran-12-doc, libgfortran5-dbg-i386-cross
@@ -4447,7 +4447,7 @@ Description: GNU Fortran compiler
  gcc backend to generate optimized code.
 
 Package: gfortran-12-multilib-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gfortran-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${dep:libgfortranbiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Fortran compiler (multilib files)
  This is the GNU Fortran compiler, which compiles Fortran on platforms
@@ -4486,7 +4486,7 @@ Description: Runtime library for GNU Fortran applications (x32 development files
  GNU Fortran applications.
 
 Package: gccgo-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (= ${gcc:Version}), libgo-12-dev-i386-cross (>= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: go-compiler
 Suggests: ${go:multilib}, gccgo-12-doc, libgo21-dbg-i386-cross
@@ -4495,7 +4495,7 @@ Description: GNU Go compiler
  by the gcc compiler. It uses the gcc backend to generate optimized code.
 
 Package: gccgo-12-multilib-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gccgo-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${dep:libgobiarchdev}, ${shlibs:Depends}, ${misc:Depends}
 Suggests: ${dep:libgobiarchdbg}
 Description: GNU Go compiler (multilib files)
@@ -4607,7 +4607,7 @@ Description: GNU Standard C++ Library v3 (development files) (i386)
  environment.
 
 Package: gdc-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), g++-12-i686-linux-gnu (= ${gcc:Version}), libgphobos-12-dev-i386-cross (= ${gcc:Version}), ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Suggests: ${gdc:multilib}, libgphobos-dbg-i386-cross
@@ -4618,7 +4618,7 @@ Description: GNU D compiler (version 2), based on the GCC backend
  This compiler supports D language version 2.
 
 Package: gdc-12-multilib-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gdc-12-i686-linux-gnu (= ${gcc:Version}), gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}), ${shlibs:Depends}, ${misc:Depends}
 Provides: d-compiler, d-v2-compiler
 Description: GNU D compiler (version 2), based on the GCC backend (multilib files)
@@ -4668,7 +4668,7 @@ Description: Phobos D standard library (x32bit runtime library)
  This is the Phobos standard library that comes with the D2 compiler.
 
 Package: gnat-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}), gcc-12-i686-linux-gnu (>= ${gcc:SoftVersion}), ${dep:libgnat}, ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
 Description: GNU Ada compiler
  GNAT is a compiler for the Ada programming language. It produces optimized
@@ -4682,7 +4682,7 @@ Description: runtime for applications compiled with GNAT (shared library)
  code on platforms supported by the GNU Compiler Collection (GCC).
 
 Package: gm2-12-i686-linux-gnu
-Architecture: amd64 arm64 ppc64el x32
+Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
   g++-12-i686-linux-gnu (= ${gcc:Version}),
   ${dep:libcdev}, ${shlibs:Depends}, ${misc:Depends}
@@ -4693,7 +4693,7 @@ Description: GNU Modula-2, based on the GCC backend
  supported by gcc.  It uses the gcc backend to generate optimised code.
 
 #Package: gm2-12-multilib-i686-linux-gnu
-#Architecture: amd64 arm64 ppc64el x32
+#Architecture: amd64 arm64 ppc64el x32 loong64 riscv64
 #Depends: gcc-12-i686-linux-gnu-base (= ${gcc:Version}),
 #  gm2-12-i686-linux-gnu (= ${gcc:Version}),
 #  gcc-12-multilib-i686-linux-gnu (= ${gcc:Version}),
